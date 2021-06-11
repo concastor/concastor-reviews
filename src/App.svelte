@@ -1,10 +1,23 @@
 <script lang="ts">
+	import GameIcon from './gameIcon.svelte'
+	// import GameIcon from './assets/images/persona4.jpg'
+
 	export let name: string;
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+
+    <!-- <img src="images/persona4.jpg" alt="" /> -->
+	<GameIcon/>
+	<!-- <GameIcon/>
+
+	<GameIcon/>
+
+	<GameIcon/> -->
+
 </main>
 
 <style>
