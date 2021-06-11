@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {Game} from "../types/Game.type"
-    import GameIcon from "./gameIcon.svelte"
+    import GameIcon from "./gameicon.svelte"
 
     let demoGame : Game = {
         title : "Persona 4 Golden",

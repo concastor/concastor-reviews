@@ -1,17 +1,32 @@
 <script lang="ts">
 	import GameGrid from './components/gameGrid.svelte'
+	import GameIcon from './components/gameicon.svelte'
 	import Header from './components/Header.svelte'
 	import Footer from './components/Footer.svelte'
-	// import GameIcon from './assets/images/persona4.jpg'
 
-	
+	import { Router, Link, Route } from "svelte-routing";
+	import RecentGame from './components/RecentGame.svelte'
+
+	export let url = "";
 </script>
 
 <Header/>
 <main>
-	<!-- <h1>Hello {name}!</h1> -->
+	<Router url="{url}">
+		<nav>
+		  <Link to="/">Home</Link>
+		  <Link to="about">About</Link>
+		  <Link to="blog">Blog</Link>
+		</nav>
+		<div>
+		  <!-- <Route path="blog/:id" component="{BlogPost}" />
+		  <Route path="blog" component="{Blog}" /> -->
+		  <Route path="about" component="{RecentGame}" /> 
+		  <Route path="/"><GameGrid/></Route>
+		</div>
+	  </Router>
 
-	<GameGrid/>
+	
 
 
 </main>
@@ -25,12 +40,6 @@
 		margin: 0 auto;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
 
 	@media (min-width: 640px) {
 		main {
