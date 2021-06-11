@@ -1,13 +1,22 @@
 <script>
+	import { Router, Link } from "svelte-routing";
 
 </script>
 
 <header>
-    <h1>
+    <div class ="title-bar">
 
         <img src="./images/coolcastor.png" alt="">
         Concastor Reviews Games
-    </h1>
+          
+        <Router>
+            <nav style="float: right;">
+                <Link to="/">Home</Link>
+                <Link to="about">About</Link>
+                <Link to="blog">Blog</Link>
+            </nav>
+        </Router>
+    </div>
 
 </header>
 
@@ -15,19 +24,23 @@
 <style>
     header{
         background: #f7f7f7;
-        padding: 15px 10vw;
-        
+        padding: 15px 0;
+        width: auto
     }
     
-    h1{
-        margin : 0;
-        text-align: center;
+    .title-bar{
+        margin : auto;
+        max-width: 60%;
         font-size: 40px;
-        /* margin-left: 10vw; */
+        text-align: left;
     }
+    
 
     img{
-        max-width: 5vw;
+        float: left;
+        max-width: 2.5vw;
+        vertical-align: middle;
+        margin-right: 10px;
     }
 
 </style>
