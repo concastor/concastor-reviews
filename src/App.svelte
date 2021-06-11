@@ -1,17 +1,21 @@
 <script lang="ts">
-	import GameIcon from './gameIcon.svelte'
+	import GameGrid from './components/gameGrid.svelte'
+	import Header from './components/Header.svelte'
+	import Footer from './components/Footer.svelte'
 	// import GameIcon from './assets/images/persona4.jpg'
 
-	export let name: string;
+	
 </script>
 
+<Header/>
 <main>
-	<h1>Hello {name}!</h1>
+	<!-- <h1>Hello {name}!</h1> -->
 
-	<GameIcon/>
+	<GameGrid/>
 
 
 </main>
+<Footer/>
 
 <style>
 	main {

@@ -1,13 +1,13 @@
 <script lang="ts">
-    import type {Game} from "./types/Game.type"
-    // export let game : Game
+    import type {Game} from "../types/Game.type"
+    export let game : Game
 
 
 </script>
 
 <div class="game-container">
-    <img class="box-art" src="images/persona4.jpg" alt="" />
-    <h3 class="title">Persona 4 Golden</h3>
+    <img class="box-art" src={game.picLink} alt="" />
+    <h3 class="title">{game.title}</h3>
 </div>
 
 
