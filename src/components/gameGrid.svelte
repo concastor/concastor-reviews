@@ -1,19 +1,14 @@
 <script lang="ts">
     import type {Game} from "../types/Game.type"
     import GameIcon from "./gameicon.svelte"
+    import GameStore from "../stores/GameStore"
 
-    let demoGame : Game = {
-        title : "Persona 4 Golden",
-        genre : ["turn-based", "action"],
-        picLink : "images/persona4.jpg"
-    }
+    let games : Game[]
 
-    let games : Game[] = [
-        demoGame, demoGame, demoGame, demoGame,
-        demoGame, demoGame, demoGame, demoGame
-    ]
-
-    
+    //subscribe to store
+    GameStore.subscribe(data => {
+        games = data
+    })
 
 
 </script>
