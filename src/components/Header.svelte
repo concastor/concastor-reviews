@@ -10,10 +10,11 @@
         Concastor Reviews Games
           
         <Router>
-            <nav style="float: right;">
+            <nav>
                 <Link to="/">Home</Link>
+                <Link to="blog">All Reviews</Link>
+                <Link to="blog">Top 10</Link>
                 <Link to="about">About</Link>
-                <Link to="blog">Blog</Link>
             </nav>
         </Router>
     </div>
@@ -34,12 +35,18 @@
         font-size: 40px;
         text-align: left;
     }
+
+    nav{
+        font-size: 20px;
+        vertical-align: middle;
+        padding-top: 1em;
+        float: right;
+    }
     
 
     img{
         float: left;
         max-width: 2.5vw;
-        vertical-align: middle;
         margin-right: 10px;
     }
 
