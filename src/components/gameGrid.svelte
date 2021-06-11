@@ -1,21 +1,18 @@
 <script lang="ts">
     import type {Game} from "../types/Game.type"
     import GameIcon from "./gameicon.svelte"
-    import GameStore from "../stores/GameStore"
+    import {fade, slide, scale} from 'svelte/transition'
 
-    let games : Game[]
-
-    //subscribe to store
-    GameStore.subscribe(data => {
-        games = data
-    })
+    export let Games : Game[]
 
 
 </script>
 
 <div class="game-container">
-    {#each games as game}
-        <GameIcon {game}/>
+    {#each Games as game}
+        <div in:scale>
+            <GameIcon {game}/>
+        </div>
     {/each}
 
 </div>

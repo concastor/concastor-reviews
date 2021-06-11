@@ -1,9 +1,10 @@
 <script>
+    // new Date().getFullYear()
 
 </script>
 
 <footer>
-    <div class = "copyright"> Copyright 2021 Concastor</div>
+    <div class = "copyright"> Copyright {new Date().getFullYear()} Concastor</div>
 </footer>
 
 

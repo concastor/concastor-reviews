@@ -30,4 +30,8 @@
         box-shadow: 0px 0px 20px black;
     }
 
+    .title{
+        text-align: center;
+    }
+
 </style>

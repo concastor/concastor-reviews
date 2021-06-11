@@ -1,13 +1,23 @@
 <script>
     import GameGrid from './gameGrid.svelte'
+    import GameStore from "../stores/GameStore"
+    import RecentGame from "./RecentGame.svelte"
+
+    //gets first value for most revent review
+    let game = $GameStore[0]
+
 
 </script>
 <div class="main-container">
     <div class="title-container">
-        <h1 class="title">Recent Reviews</h1>
-    
+        <h1 class="title">Most Recent Review</h1>
     </div>
-    <GameGrid/>
+    <RecentGame {game}/>
+
+    <div class="title-container">
+        <h1 class="title">Recent Reviews</h1>
+    </div>
+    <GameGrid Games={$GameStore}/>
 </div>
 
 <style>

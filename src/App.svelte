@@ -5,6 +5,7 @@
 
 	import { Router, Link, Route } from "svelte-routing";
 	import RecentGame from './components/RecentGame.svelte'
+	import RightArrow from './shared/rightArrow.svelte'
 
 	export let url = "";
 </script>
@@ -15,7 +16,7 @@
 		<div>
 		  <!-- <Route path="blog/:id" component="{BlogPost}" />
 		  <Route path="blog" component="{Blog}" /> -->
-		  <Route path="about" component="{RecentGame}" /> 
+		  <Route path="about" component="{RightArrow}" /> 
 		  <Route path="/"><HomePage/></Route>
 		</div>
 	  </Router>
@@ -28,7 +29,7 @@
 
 <style>
 	main {
-		text-align: center;
+		/* text-align: center; */
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
