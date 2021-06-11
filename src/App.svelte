@@ -1,6 +1,5 @@
 <script lang="ts">
-	import GameGrid from './components/gameGrid.svelte'
-	import GameIcon from './components/gameicon.svelte'
+	import HomePage from './components/homePage.svelte'
 	import Header from './components/Header.svelte'
 	import Footer from './components/Footer.svelte'
 
@@ -17,7 +16,7 @@
 		  <!-- <Route path="blog/:id" component="{BlogPost}" />
 		  <Route path="blog" component="{Blog}" /> -->
 		  <Route path="about" component="{RecentGame}" /> 
-		  <Route path="/"><GameGrid/></Route>
+		  <Route path="/"><HomePage/></Route>
 		</div>
 	  </Router>
 

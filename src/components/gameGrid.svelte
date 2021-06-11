@@ -28,7 +28,6 @@
         display: inline-grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 2vw;
-        max-width: 70%;
         margin: auto;
     }
 
