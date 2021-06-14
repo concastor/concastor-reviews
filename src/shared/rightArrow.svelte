@@ -1,39 +1,65 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
 
-import App from "../App.svelte";
+  const dispatch = createEventDispatcher();
+
+  const navigateToGame = () => {
+        dispatch("pressed")
+    }
 
 </script>
-<a class="rightArrow">Read More...</a>
+
+
+<div class="button" on:click={navigateToGame}></div>
+
 
 <style>
 
-a.rightArrow {
-	position: relative;
-	background: maroon;
-	display: inline-block;
-	padding: 10px;
-	color: #FFF;
-	text-decoration: none;
-	border-radius: 6px;
+.button {
+  cursor: pointer;
+  position: relative;
+  top: 10%;
+  left: 10%;
+  height: 60px;
+  width: 100px;
+  background: rgb(48, 177, 76);
+  border-radius: 25px
 }
-a:hover.rightArrow {
-	background: #000;
+
+.button:before {
+  content: "";
+  width: 25px;
+  height: 2px;
+  background: slategray;
+  position: absolute;
+  top: 50%;
+  margin-top: -1px;
+  right: 24px;
+  transition: all 0.3s ease;
 }
-a.rightArrow:after {
-	position: absolute;
-	top: 50%;
-	left: 100%;
-	margin-top: -11px;
-	content: ' ';
-	width: 0;
-	height: 0;
-	border-left: 10px solid maroon;
-	border-right: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	border-top: 10px solid transparent;
+
+.button:hover:before {
+  right: 34px;
+  width: 35px;
 }
-a:hover.rightArrow:after {
-	border-left-color: #000;
+
+.button:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #000000;
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
+  right: 20px;
+  transition: all 0.3s ease;
+}
+
+.button:hover:after {
+  right: 34px;
+  right: 30px;
 }
 
 </style>

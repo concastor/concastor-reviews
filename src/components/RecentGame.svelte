@@ -1,11 +1,16 @@
 <script lang='ts'>
     import type {Game} from "../types/Game.type"
 	import RightArrow from '../shared/rightArrow.svelte'
-
-
+    import { navigate } from "svelte-routing";
+    
+    
     export let game : Game
-
-    let review = game.review.substr(0)
+    
+    const navigateToGame = () => {
+        console.log("forwared")
+        navigate("/Review/" + game.title)
+    }
+    // let review = game.review.substr(0)
 
 
 </script>
@@ -16,13 +21,13 @@
         <img class="box-art" src={game.picLink} alt="" />
     </div>
     <div class="container">
-        <br>
+        <!-- <br> -->
         <h1>{game.title}</h1>
-        <h2>{review}</h2>
+        <h2>{game.review}</h2>
         
     </div>
     <div class="arrow">
-        <RightArrow/>
+        <RightArrow on:pressed="{navigateToGame}"/>
     </div>
 
 
@@ -31,11 +36,12 @@
 <style>
 
     .main-container{
-        max-height: 36em;
+        max-height: 40em;
         
     }
 
     .arrow{
+        margin: 1em;
         float: right;
         margin-right: 10px;
     }
@@ -43,7 +49,7 @@
         float: left;
         height: auto;
         width : 64%;
-        height: 80%;
+        height: 84%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: pre-wrap;
@@ -56,8 +62,12 @@
         /* float: left; */
     }
 
-    h2,h1{
-        margin: 0
+    h2{
+        margin: 0;
+        
+    }
+    h1{
+        margin-bottom: 0;
     }
 
 </style>

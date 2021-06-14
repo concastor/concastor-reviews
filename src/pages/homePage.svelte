@@ -1,7 +1,7 @@
 <script>
-    import GameGrid from './gameGrid.svelte'
+    import GameGrid from '../components/gameGrid.svelte'
     import GameStore from "../stores/GameStore"
-    import RecentGame from "./RecentGame.svelte"
+    import RecentGame from "../components/RecentGame.svelte"
 
     //gets first value for most revent review
     let game = $GameStore[0]

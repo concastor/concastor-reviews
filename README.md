@@ -2,5 +2,5 @@
 - svelte
 - graphql
 - typescript
--
+- svelte-router
 -

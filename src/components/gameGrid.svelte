@@ -3,7 +3,9 @@
     import GameIcon from "./gameicon.svelte"
     import {fade, slide, scale} from 'svelte/transition'
 
+
     export let Games : Game[]
+    
 
 
 </script>
