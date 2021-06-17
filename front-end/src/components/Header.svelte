@@ -15,6 +15,7 @@
                 <Link to="blog">All Reviews</Link>
                 <Link to="blog">Top 10</Link>
                 <Link to="about">About</Link>
+                <Link to="Create">Create</Link>
             </nav>
         </Router>
     </div>

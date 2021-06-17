@@ -1,6 +1,7 @@
 <script lang="ts">
 	import HomePage from './pages/homePage.svelte'
 	import GamePage from './pages/GamePage.svelte'
+	import CreatePage from './pages/createPage.svelte'
 	import Header from './components/Header.svelte'
 	import Footer from './components/Footer.svelte'
 
@@ -17,8 +18,8 @@
 		<div>
 		  <Route path="Review/:title" let:params >
 				<GamePage title={params.title}/>
-			</Route>
-		  <!-- <Route path="blog" component="{Blog}" />  -->
+		  </Route>
+		  <Route path="Create" component="{CreatePage}" /> 
 		  <Route path="about" component="{RightArrow}" /> 
 		  <Route path="/"><HomePage/></Route>
 		</div>

@@ -47,13 +47,3 @@ app.use('/graphql', graphqlHTTP({
 
 app.listen(4000);
 console.log('Running a GraphQL API server at http://localhost:4000/graphql');
-
-
-
-// const app = new Realm.App({ id: "<Your App ID>" });
-// const credentials = Realm.Credentials.anonymous();
-// try {
-//   const user = await app.logIn(credentials);
-// } catch(err) {
-//   console.error("Failed to log in", err);
-// }

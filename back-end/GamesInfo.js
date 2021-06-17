@@ -13,7 +13,6 @@ class GamesInfo {
     }
 
     async allGameInfo(){
-
         let mongoClient = await retrieveMongo()
         
         let allgames = await mongoClient.Games.find({}).toArray()

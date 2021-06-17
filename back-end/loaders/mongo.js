@@ -3,11 +3,11 @@ const { MongoClient } = require("mongodb");
 //TODO: change to env variable
 const uri = "mongodb+srv://concastor:OKj6pmxBNRnnLxo7@jakescreativeclusters.etaz3.mongodb.net/ReviewSite?retryWrites=true&w=majority"
 
-let Database
+let database
 
 
-
-async function run() {
+//connection to the database and returns the collections
+async function initDB() {
     //checking if database is already connected
     if(typeof database === "undefined"){
         try {
@@ -36,7 +36,7 @@ async function run() {
 
 module.exports = {
     getDb : async () => {
-        let db = await run()
+        let db = await initDB()
         return db
     }
 }
