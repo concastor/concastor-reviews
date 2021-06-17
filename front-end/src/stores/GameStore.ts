@@ -35,7 +35,8 @@ const  InitStore = async () => {
         .then(r => r.json())
         .then(data => {
           games = data.data.getGames.allGameInfo
-          
+          // games = data.data.getGames.recentGame
+
           //update stores
           GameStore.set(games)
           RecentGameStore.set(games[0])

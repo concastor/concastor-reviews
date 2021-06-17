@@ -4,4 +4,4 @@
 - typescript
 - svelte-router
 - mongodb atlas
-- mongoddb realm
+- node

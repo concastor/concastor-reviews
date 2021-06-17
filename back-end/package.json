@@ -8,6 +8,7 @@
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "graphql": "^15.5.0",
+    "mongodb": "^3.6.9",
     "realm": "^10.4.2"
   },
   "devDependencies": {},
