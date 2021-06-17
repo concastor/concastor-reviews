@@ -1,26 +1,37 @@
 const { MongoClient } = require("mongodb");
-// Replace the uri string with your MongoDB deployment's connection string.
+
+//TODO: change to env variable
 const uri = "mongodb+srv://concastor:OKj6pmxBNRnnLxo7@jakescreativeclusters.etaz3.mongodb.net/ReviewSite?retryWrites=true&w=majority"
 
+let Database
 
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 
 async function run() {
-  try {
-    await client.connect();
-    const database = client.db('ReviewSite');
+    //checking if database is already connected
+    if(typeof database === "undefined"){
+        try {
+            const client = new MongoClient(uri, {
+              useNewUrlParser: true,
+              useUnifiedTopology: true,
+            });
 
-    return {
-        Games : database.collection('Games')
+            await client.connect();
+            database  = client.db('ReviewSite');
+        
+            return {
+                Games : database.collection('Games')
+            }
+      
+        }catch (e) {
+            console.log(e)
+        }
+    }else{
+        return {
+            Games : database.collection('Games')
+        }
     }
-    
-  }catch (e) {
-      console.log(e)
-  }
+
 }
 
 module.exports = {
