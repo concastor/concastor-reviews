@@ -2,16 +2,13 @@
     import type {Game} from "../types/Game.type"
     import GameIcon from "./gameicon.svelte"
     import {fade, slide, scale} from 'svelte/transition'
-
-
-    export let Games : Game[]
-    
+    import GameStore from "../stores/GameStore"
 
 
 </script>
 
 <div class="game-container">
-    {#each Games as game}
+    {#each $GameStore as game}
         <div in:scale>
             <GameIcon {game}/>
         </div>

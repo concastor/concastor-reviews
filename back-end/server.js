@@ -3,7 +3,7 @@ const { graphqlHTTP } = require('express-graphql');
 var cors = require('cors');
 const { buildSchema } = require('graphql');
 
-const GamesInfo = require('./GamesInfo')
+const GI = require('./GamesInfo')
 
  
 // Construct a schema, using GraphQL schema language
@@ -29,7 +29,7 @@ var schema = buildSchema(`
 // The root provides a resolver function for each API endpoint
 var root = {
   getGames: ({title}) => {
-    return new GamesInfo.GamesInfo(title)
+    return new GI.GamesInfo(title)
   }
   
 };

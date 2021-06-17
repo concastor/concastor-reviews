@@ -1,10 +1,9 @@
 <script>
     import GameGrid from '../components/gameGrid.svelte'
-    import GameStore from "../stores/GameStore"
     import RecentGame from "../components/RecentGame.svelte"
 
     //gets first value for most revent review
-    let game = $GameStore[0]
+
 
 
 </script>
@@ -12,12 +11,12 @@
     <div class="title-container">
         <h1 class="title">Most Recent Review</h1>
     </div>
-    <RecentGame {game}/>
+    <RecentGame />
 
     <div class="title-container">
         <h1 class="title">Recent Reviews</h1>
     </div>
-    <GameGrid Games={$GameStore}/>
+    <GameGrid />
 </div>
 
 <style>
