@@ -2705,6 +2705,27 @@ var app = (function () {
     	}
     }
 
+    var dice = 3;
+    var sides = 6;
+    var query = `query RollDice($dice: Int!, $sides: Int) {
+  rollDice(numDice: $dice, numSides: $sides)
+}`;
+    const callGraphql = () => {
+        fetch('http://localhost:4000/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                query,
+                variables: { dice, sides },
+            })
+        })
+            .then(r => r.json())
+            .then(data => console.log('data returned:', data));
+    };
+    callGraphql();
     //demo data
     let PersonaGame = {
         title: "Persona 4 Golden",

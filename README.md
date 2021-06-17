@@ -3,4 +3,5 @@
 - graphql
 - typescript
 - svelte-router
-- mongodb
+- mongodb atlas
+- mongoddb realm

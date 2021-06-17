@@ -1,33 +1,4 @@
-import { writable } from "svelte/store";
-import type {Game} from "../types/Game.type"
-
-var dice = 3;
-var sides = 6;
-var query = `query RollDice($dice: Int!, $sides: Int) {
-  rollDice(numDice: $dice, numSides: $sides)
-}`;
-
-const callGraphql = () => {
-    fetch('http://localhost:4000/graphql', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          query,
-          variables: { dice, sides },
-        })
-      })
-        .then(r => r.json())
-        .then(data => console.log('data returned:', data))
-}
-
-callGraphql()
-
-
-//demo data
-let PersonaGame : Game = {
+let PersonaGame  = {
     title : "Persona 4 Golden",
     genre : ["turn-based", "action"],
     picLink : "images/persona4.jpg",
@@ -44,7 +15,7 @@ let PersonaGame : Game = {
 
 }
 
-let OuterWilds : Game = {
+let OuterWilds = {
     title : "Outer Wilds",
     genre : ["puzzle", "exploration"],
     picLink : "images/outerWilds.jpg",
@@ -52,14 +23,14 @@ let OuterWilds : Game = {
 
 }
 
-let subnautica : Game = {
+let subnautica  = {
     title : "Subnautica",
     genre : ['survival'],
     picLink : "images/subnautica.png",
     review : "pre good",
 
 }
-let darkSouls : Game = {
+let darkSouls = {
     title : "Dark Souls",
     genre : ['Action-Rpg'],
     picLink : "images/darksouls.jpg",
@@ -67,15 +38,19 @@ let darkSouls : Game = {
 
 }
 
-let games : Game[] = [
-    PersonaGame, OuterWilds, subnautica, darkSouls,
-    PersonaGame, darkSouls, subnautica, OuterWilds
-]
 
-//creates store
-const GameStore = writable(games)
+class GamesInfo {
+    constructor(title) {
+      this.title = title;
+    }
 
+    allGameInfo(){
+        return  [
+            PersonaGame, OuterWilds, subnautica, darkSouls,
+            PersonaGame, darkSouls, subnautica, OuterWilds
+        ]
+    }
 
+}
 
-//reveals store to other components
-export default GameStore
+module.exports.GamesInfo = GamesInfo
