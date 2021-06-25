@@ -10,6 +10,7 @@ const GI = require('./GamesInfo')
 var schema = buildSchema(`
   type GamesInfo {
     allGameInfo: [Game]
+    findOneGame : Game
   }
   
   type Game {
@@ -18,6 +19,7 @@ var schema = buildSchema(`
     picLink : String
     review : String
   }
+
 
   type Query {
     getGames(title : String) : GamesInfo

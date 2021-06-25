@@ -22,6 +22,15 @@ class GamesInfo {
         return  allgames
     }
 
+    async findOneGame(){
+        let mongoClient = await retrieveMongo()
+        let game = await mongoClient.Games.findOne({title : this.title})
+
+        // console.log("game", game, this.title)
+
+        return game
+    }
+
 }
 
 module.exports.GamesInfo = GamesInfo

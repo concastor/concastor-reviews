@@ -1,7 +1,6 @@
 <script lang="ts">
     import type {Game} from "../types/Game.type";
     import { navigate } from "svelte-routing";
-
     export let game : Game
 
     const navigateToGame = () => {
@@ -14,6 +13,24 @@
     <img class="box-art" src={game.picLink} alt="" />
     <h3 class="title">{game.title}</h3>
 </div>
+
+<!-- <div class="card-display">
+    <div class="card-container">
+      <Card>
+        <Media class="card-media-16x9" aspectRatio="16x9">
+          <MediaContent>
+            <h2
+              class="mdc-typography--headline6"
+              style="color: #fff; position: absolute; bottom: 16px; left: 16px; margin: 0;"
+            >
+              A card with 16x9 media.
+            </h2>
+          </MediaContent>
+        </Media>
+        <Content style="color: #888;">Here's some gray text down here.</Content>
+      </Card>
+    </div>
+</div> -->
 
 
 <style>
@@ -39,5 +56,13 @@
     .title{
         text-align: center;
     }
+
+    * :global(.card-media-16x9) {
+    background-image: url(https://place-hold.it/320x180?text=16x9&fontsize=23);
+  }
+ 
+  * :global(.card-media-square) {
+    background-image: url(https://place-hold.it/320x320?text=square&fontsize=23);
+  }
 
 </style>

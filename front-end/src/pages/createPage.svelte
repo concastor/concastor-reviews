@@ -18,7 +18,7 @@
     <p>review</p>
     
     <textarea  id="review" name="review" rows="8" cols="100">
-        test review 
+        test review
     </textarea>
 
     <p>score</p>
