@@ -34,7 +34,7 @@ class backendService {
         return data.data.getGames.allGameInfo
     }
 
-    getOneGame = async (title) => {
+    getOneGame = async (title : string) => {
         const query =     
         `query getGames($title : String){
             getGames(title : $title){

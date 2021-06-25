@@ -6,7 +6,6 @@
 	import Footer from './components/Footer.svelte'
 
 	import { Router, Link, Route } from "svelte-routing";
-	import RecentGame from './components/RecentGame.svelte'
 	import RightArrow from './shared/rightArrow.svelte'
 
 	export let url = "";
