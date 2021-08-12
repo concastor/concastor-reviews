@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {Game} from "../types/Game.type";
     import { navigate } from "svelte-routing";
+    import { Tag } from "carbon-components-svelte";
     export let game : Game
 
     const navigateToGame = () => {
@@ -12,6 +13,7 @@
 <div class="game-container" on:click="{navigateToGame}">
     <img class="box-art" src={game.picLink} alt="" />
     <h3 class="title">{game.title}</h3>
+    <Tag type="teal">IBM Cloud</Tag>
 </div>
 
 <!-- <div class="card-display">

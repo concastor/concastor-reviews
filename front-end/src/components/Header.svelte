@@ -6,7 +6,7 @@
 <header>
     <div class ="title-bar">
 
-        <img src="./images/coolcastor.png" alt="">
+        <img src="/images/coolcastor.png" alt="">
         Concastor Reviews Games
           
         <Router>
