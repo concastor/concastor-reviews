@@ -12,7 +12,7 @@
 
 <div class="game-container" on:click="{navigateToGame}">
     <img class="box-art" src={game.picLink} alt="" />
-    <h3 class="title">{game.title}</h3>
+    <h4 class="title">{game.title}</h4>
     <Tag type="teal">IBM Cloud</Tag>
 </div>
 

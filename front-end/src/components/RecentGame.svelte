@@ -57,7 +57,9 @@
 <style>
 
     .main-container{
-        max-height: 40em;
+        max-height: 43em;
+        padding-top: 10px;
+        /* padding-bottom: 20px; */
         
     }
 
@@ -69,8 +71,8 @@
     .container{
         float: left;
         height: auto;
-        width : 64%;
-        height: 84%;
+        width : 60%;
+        height: 85%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: pre-wrap;
