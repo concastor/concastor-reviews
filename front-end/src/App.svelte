@@ -22,7 +22,7 @@
 		  <Route path="about" component="{RightArrow}" /> 
 		  <Route path="/"><HomePage/></Route>
 		</div>
-	  </Router>
+	</Router>
 
 	
 

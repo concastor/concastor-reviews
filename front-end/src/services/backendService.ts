@@ -1,57 +1,41 @@
+import axios from 'axios';
 
-const fetchData = async (method : string, query : string, variables? : object) =>  {
-    return fetch('http://localhost:4000/graphql', {
-        method: method,
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          query,
-          variables: variables,
-        })
-    })
+const API_URL = process.env.API_URL || `http://localhost:4000/api`
+
+axios.defaults.headers.common = {
+  "Content-Type": "application/json",
+  'Accept': 'application/json',
 }
+
 
 
 class backendService {
 
     getAllGames = async() => {
-        const query =     
-        `query getGames($title : String){
-            getGames(title : $title){
-              allGameInfo{
-                title
-                picLink
-                review
-                genre
-              }
-            }
-          }`
 
-        let data = await (await fetchData( "POST", query )).json()
-
-        return data.data.getGames.allGameInfo
+      try {
+        const response = await axios.get(`${API_URL}/games`)
+        return response.data
+        
+        //handle error
+      } catch (error) {
+        console.log(error);
+      }
+      
     }
-
+    
     getOneGame = async (title : string) => {
-        const query =     
-        `query getGames($title : String){
-            getGames(title : $title){
-              findOneGame{
-                title
-                picLink
-                review
-                genre
-              }
-            }
-          }`
-
-          const variables = {title}
-
-        let data = await (await fetchData( "POST", query, variables )).json()
-
-        return data.data.getGames.findOneGame
+      
+      try {
+        const response = await axios.post(`${API_URL}/search/game`, { title })
+        
+        console.log("response", response)
+        return response.data
+        
+      //handle error
+      } catch (error) {
+        console.log(error);
+      }
     }
 
 }
