@@ -1,52 +1,34 @@
 <script lang="ts">
-    let genres = []
-    let menu = [
-        "Action",
-        "Platformer",
-        "Shooter" ,
-        "Fighting" ,
-        "Stealth",
-        "Survival",
-        "Rhythm", 
-        "Battle Royale", 
-        "Adventure",
-        "Survival horror",
-        "Metroidvania",
-        "Competative",
-        "Visual novels",
-        "Interactive movie",
-        "Role-Playing",
-        "Multiplayer",
-        "MMORPG",
-        "Roguelike",
-        "Sandbox",
-        "JRPG",
-        "Simulation",
-        "Strategy",
-        "MOBA",
-        "Real-time strategy",
-        "Tower defense",
-        "Turn-based strategy",
-        "Sports",
-        "Racing",
-        "Open world",
-        "MMO"
-    ]
+    import { genres } from "./data/genres";
+    import { Checkbox } from "carbon-components-svelte";
 
-    const test = () =>{
-        console.log(genres)
+    //TODO: make it an accordian
+
+    const selectedGenres = new Set() //fancy and uneccsarily efficent
+
+    let menu = genres
+
+    // let selectedGenres = []
+
+    const addGenre = (e, genre) =>{
+        if (e.detail) {
+            selectedGenres.add(genre)
+            console.log("clicked", e.detail, genre, [...selectedGenres])
+
+        }
+        else {
+            selectedGenres.delete(genre) 
+            console.log("clicked", e.detail, genre, [...selectedGenres])
+        }
+
     }   
 
 </script>
 <div class="genre-container">
     {#each menu as genre}
-        <label>
-            <input type=checkbox bind:group={genres} value={genre}>
-            {genre}
-        </label>
+        <Checkbox on:check={(e) => addGenre(e, genre)} labelText={genre}/>
     {/each}
 </div>
-<button on:click="{test}">test</button>
 
 <style>
     .genre-container{

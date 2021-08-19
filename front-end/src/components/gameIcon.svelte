@@ -13,17 +13,14 @@
 <div class="game-container" on:click="{navigateToGame}">
   
   <div class="box-art">
-    <ImageLoader  
-      src={game.picLink} 
-    />
+    <ImageLoader src={game.picLink} />
   </div>
   
-    <!-- <img class="box-art" src={game.picLink} alt="" /> -->
-    <h4 class="title">{game.title}</h4>
+  <h4 class="title">{game.title}</h4>
 
-    {#each game.genre as genre}
-      <Tag type="teal">{genre}</Tag>
-    {/each}
+  {#each game.genre as genre}
+    <Tag type="teal">{genre}</Tag>
+  {/each}
 </div>
 
 <style>
