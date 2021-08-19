@@ -1,7 +1,7 @@
 <script lang="ts">
     import GenreRadio from "../components/genreRadio.svelte";
     import ConfirmModal from "../shared/confirmModal.svelte";
-    import { Button  } from "carbon-components-svelte";
+    import { Button , TextInput, TextArea } from "carbon-components-svelte";
 
 
     
@@ -10,7 +10,7 @@
     let review : string
     let picLink : string
 
-    $: console.log("genres", genres)
+    $: console.log("genres", review)
 
     let modalOpen = false
 
@@ -25,19 +25,17 @@
 
     <h1>create</h1>
 
-    <p>title</p>
-    <input bind:value={title}>
-    <p>genre</p>
+    <TextInput style="width: 50%" labelText="Game Title" placeholder="enter title of game" bind:value={title} />
+
+    <p>genres</p>
     <GenreRadio on:selected={(e)=> genres = e.detail}/>
-    <p>review</p>
-    
-    <textarea  id="review" name="review" rows="8" cols="100">
-        test review
-    </textarea>
+
+
+    <TextArea labelText="Game review" placeholder="Enter the review..." bind:value={review}/>
 
     <p>score</p>
 
-    <Button on:click={(()=> modalOpen = !modalOpen)} >Create Review</Button>
+    <Button on:click={(()=> modalOpen = !modalOpen)}>Create</Button>
 
 
 
