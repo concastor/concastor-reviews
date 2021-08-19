@@ -18,10 +18,11 @@
     export let open = false
 
 
-    const submitted = () => {
-        dispatch("approved", true)
-        open = false
-    }
+  const submitted = () => {
+      dispatch("approved", true)
+      open = false
+      checked = false
+  }
 
   </script>
   
