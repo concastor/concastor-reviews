@@ -25,7 +25,7 @@
 
 <style>
     header{
-        background: #f7f7f7;
+        background: #06220d;
         padding: 15px 0;
         width: auto
     }
