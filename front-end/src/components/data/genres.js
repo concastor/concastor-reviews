@@ -1,3 +1,4 @@
+//just storage for all the generes
 export const genres = [
     "Action",
     "Platformer",

@@ -4,8 +4,6 @@
     import { createEventDispatcher } from 'svelte';
 
     
-    //TODO: make it an accordian
-    
     const dispatch = createEventDispatcher();
     const selectedGenres = new Set() //fancy and uneccsarily efficent
 
