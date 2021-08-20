@@ -1,4 +1,5 @@
 const MongoService = require("./loaders/mongo")
+const IgdbLoader = require("./loaders/igdbLoader")
 
 
 
@@ -35,6 +36,11 @@ class GamesInfo {
 
         return game
     }
+
+    async getGameInformation(){
+        IgdbLoader.getInfo()
+    }
+
 
 }
 

@@ -1,7 +1,7 @@
 const { MongoClient } = require("mongodb");
 
 //TODO: change to env variable
-const uri = "mongodb+srv://concastor:OKj6pmxBNRnnLxo7@jakescreativeclusters.etaz3.mongodb.net/ReviewSite?retryWrites=true&w=majority"
+const uri = process.env.MONGO_CONNECTION
 
 let database
 

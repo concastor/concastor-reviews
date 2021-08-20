@@ -1,7 +1,7 @@
 <script lang="ts">
     import GenreRadio from "../components/genreRadio.svelte";
     import ConfirmModal from "../shared/confirmModal.svelte";
-    import { Button , TextInput, TextArea } from "carbon-components-svelte";
+    import { Button , TextInput, TextArea, FileUploaderDropContainer } from "carbon-components-svelte";
     import ScoreSelect from "../components/ScoreSelect.svelte";
     import type { Score } from "../types/Score.type";
 
@@ -47,6 +47,13 @@
     <h3>Score</h3>
     <div class="section">
         <ScoreSelect bind:score/>
+    </div>
+
+    <div class="section">
+        <FileUploaderDropContainer
+        labelText="Drag and drop Cover Art here or click to upload"
+        
+        />
     </div>
 
     <Button on:click={(()=> modalOpen = !modalOpen)}>Create</Button>

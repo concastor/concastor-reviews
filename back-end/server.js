@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const asyncHandler = require('express-async-handler')
 const cors = require('cors');
@@ -39,6 +40,12 @@ router.get('/games', asyncHandler(async (req, res) => {
 //route for searching a specific game
 router.post('/search/game', asyncHandler(async (req, res) => {
   let response = await GameInfo.findOneGame(req.body.title)
+  res.json(response);   
+}));
+
+//route for searching a specific game
+router.get('/game/info', asyncHandler(async (req, res) => {
+  let response = await GameInfo.getGameInformation()
   res.json(response);   
 }));
 

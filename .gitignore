@@ -3,3 +3,5 @@ build/
 .vscode
 
 .DS_Store
+back-end/.env
+front-end/.env

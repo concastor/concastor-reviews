@@ -2,7 +2,8 @@
     import {bs} from "../services/backendService"
     import { onMount } from 'svelte';
     import type { Game } from "../types/Game.type";
-    import ScoreDisplay from "../shared/scoreDisplay.svelte"
+
+    
     export let title : string
 
     let backendService = new bs()
