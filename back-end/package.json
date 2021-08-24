@@ -1,25 +1,25 @@
 {
-  "name": "back-end",
-  "version": "1.0.0",
-  "description": "the backend for the review sit",
-  "main": "server.js",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-async-handler": "^1.1.4",
-    "express-graphql": "^0.12.0",
-    "graphql": "^15.5.0",
-    "mongodb": "^3.6.9",
-    "realm": "^10.4.2"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "npm start-dev",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC"
+	"name": "back-end",
+	"version": "1.0.0",
+	"description": "the backend for the review sit",
+	"main": "server.js",
+	"dependencies": {
+		"axios": "^0.21.1",
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"express-async-handler": "^1.1.4",
+		"express-graphql": "^0.12.0",
+		"graphql": "^15.5.0",
+		"mongodb": "^3.6.9",
+		"realm": "^10.4.2"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "npm start-dev",
+		"start": "nodemon server.js"
+	},
+	"author": "",
+	"license": "ISC"
 }

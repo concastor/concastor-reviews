@@ -1,47 +1,38 @@
 const MongoService = require("./loaders/mongo")
 const IgdbLoader = require("./loaders/igdbLoader")
 
-
-
-const retrieveMongo = async() =>{
-    return await MongoService.getDb()
+const retrieveMongo = async () => {
+	return await MongoService.getDb()
 }
 
-
 class GamesInfo {
-    constructor() {
+	constructor() {
+		//   this.mongoClient = retrieveMongo()
+	}
 
-    //   this.mongoClient = retrieveMongo()
-    }
+	async allGameInfo() {
+		let mongoClient = await retrieveMongo()
 
-    async allGameInfo(){
+		let allgames = await mongoClient.Games.find({}).toArray()
 
-        let mongoClient = await retrieveMongo()
-        
-        let allgames = await mongoClient.Games.find({}).toArray()
+		//TODO: remove, currently for testing
+		allgames = [...allgames, ...allgames]
+		return allgames
+	}
 
+	async findOneGame(title) {
+		let mongoClient = await retrieveMongo()
 
-        //TODO: remove, currently for testing
-        allgames = [...allgames, ...allgames]
-        return  allgames
-    }
+		let game = await mongoClient.Games.findOne({ title })
 
-    async findOneGame(title){
-        let mongoClient = await retrieveMongo()
+		console.log("game", game, title)
 
-        
-        let game = await mongoClient.Games.findOne({title})
+		return game
+	}
 
-        console.log("game", game, title)
-
-        return game
-    }
-
-    async getGameInformation(){
-        IgdbLoader.getInfo()
-    }
-
-
+	async getGameInformation() {
+		return await IgdbLoader.getInfo()
+	}
 }
 
 module.exports.GamesInfo = GamesInfo
