@@ -1,5 +1,6 @@
 const MongoService = require("./loaders/mongo")
 const IgdbLoader = require("./loaders/igdbLoader")
+const igdbLoader = require("./loaders/igdbLoader")
 
 const retrieveMongo = async () => {
 	return await MongoService.getDb()
@@ -25,13 +26,15 @@ class GamesInfo {
 
 		let game = await mongoClient.Games.findOne({ title })
 
-		console.log("game", game, title)
-
 		return game
 	}
 
-	async getGameInformation() {
-		return await IgdbLoader.getInfo()
+	async createGame(title) {
+		let game_info = await IgdbLoader.getId(title)
+
+		let coverArt = await igdbLoader.getCoverArt(game_info.cover)
+
+		return coverArt
 	}
 }
 

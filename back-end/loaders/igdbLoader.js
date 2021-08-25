@@ -1,7 +1,6 @@
 const axios = require("axios")
 
 const TWITCH_URL = "https://id.twitch.tv/oauth2/token"
-const IGDB_URL = "https://api.igdb.com/v4/"
 
 const client_id = process.env.CLIENT_ID
 const client_secret = process.env.CLIENT_SECRET
@@ -12,6 +11,9 @@ const grant_type = "client_credentials"
 
 let accessToken
 
+/**
+ * Gets bearer token for API Authentication
+ */
 const getAccessToken = async () => {
 	let params = {
 		client_id,
@@ -20,21 +22,42 @@ const getAccessToken = async () => {
 	}
 	try {
 		let response = await axios.post(TWITCH_URL, {}, { params })
-		return response.data
+		accessToken = response.data
 	} catch (e) {
-		return error
+		console.log("authetication error", e)
 	}
 }
 
+/**
+ * checks if bearer token is needed or expired
+ */
+const checkTokenAuth = async () => {
+	if (!accessToken || accessToken.expires_in <= 0) {
+		console.log("authenticating...")
+		await getAccessToken()
+	} else {
+		console.log("already authenticated")
+	}
+}
+
+/**
+ * general function for making requests to IGDB
+ *
+ * @param {string} filters The provided filters for endpoint.
+ * @param {string} route the requested endpoint for the api.
+ * @return {object} the retrieved information.
+ */
 const makeIgdbRequest = async (filters, route) => {
+	await checkTokenAuth()
+
 	try {
 		return await axios({
-			url: `https://api.igdb.com/v4/${route}`,
+			url: `https://api.igdb.com/v4${route}`,
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Client-ID": client_id,
-				Authorization: `Bearer ${accessToken}`,
+				Authorization: `Bearer ${accessToken.access_token}`,
 			},
 			data: filters,
 		})
@@ -43,25 +66,40 @@ const makeIgdbRequest = async (filters, route) => {
 	}
 }
 
-const main = async () => {
-	let TokenObj = await getAccessToken()
-	console.log("resposne form igdb", TokenObj)
+/**
+ * makes request to IGDB api for game id based on title
+ *
+ * @param {string} title The title of the game that is being searched.
+ * @return {string} the IGDB id of the game.
+ */
+const getIgdbId = async (title) => {
+	const filter = `search "${title}"; fields id, cover; where version_parent = null;`
+	const route = "/games"
 
-	accessToken = TokenObj.access_token
+	let res = await makeIgdbRequest(filter, route)
 
-	let title = "persona 4 golden"
+	console.log("gameinfo", res.data)
+	return res.data[0] //returns most likely option
+}
 
-	let filter = 'search "outer wilds"; fields *;'
+const getGameCover = async (game_id) => {
+	const filter = `fields *; where id = ${game_id};`
+	const route = "/covers"
 
-	let res = await makeIgdbRequest(filter, "games")
+	let res = await makeIgdbRequest(filter, route)
 
-	console.log("res", res.data)
-	return res.data
+	let coverInfo = res.data[0]
+
+	console.log("coverInfo", coverInfo)
+
+	return `https://images.igdb.com/igdb/image/upload/t_cover_big/${coverInfo.image_id}.jpg`
 }
 
 module.exports = {
-	getInfo: async () => {
-		let results = await main()
-		return results
+	getId: async (title) => {
+		return await getIgdbId(title)
+	},
+	getCoverArt: async (game_id) => {
+		return await getGameCover(game_id)
 	},
 }
