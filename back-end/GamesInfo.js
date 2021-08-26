@@ -30,11 +30,19 @@ class GamesInfo {
 	}
 
 	async createGame(title) {
-		let game_info = await IgdbLoader.getId(title)
+		const game_info = await IgdbLoader.getId(title)
 
-		let coverArt = await igdbLoader.getCoverArt(game_info.cover)
+		console.log("retrieved info", game_info)
 
-		return coverArt
+		const coverArtUrl = await igdbLoader.getCoverArt(game_info.cover)
+
+		const genres = await igdbLoader.getGenres(game_info.genres)
+
+		return {
+			picLink: coverArtUrl,
+			igdb_id: game_info.id,
+			genre: genres,
+		}
 	}
 }
 

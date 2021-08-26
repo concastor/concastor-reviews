@@ -19,7 +19,7 @@
   <h4 class="title">{game.title}</h4>
 
   {#each game.genre as genre}
-    <Tag type="teal">{genre}</Tag>
+    <Tag type="teal"> {genre.name} </Tag>
   {/each}
 </div>
 

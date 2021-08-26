@@ -73,12 +73,12 @@ const makeIgdbRequest = async (filters, route) => {
  * @return {string} the IGDB id of the game.
  */
 const getIgdbId = async (title) => {
-	const filter = `search "${title}"; fields id, cover; where version_parent = null;`
+	const filter = `search "${title}"; fields id, cover, genres; where version_parent = null;`
 	const route = "/games"
 
 	let res = await makeIgdbRequest(filter, route)
 
-	console.log("gameinfo", res.data)
+	console.log("subanti", res.data)
 	return res.data[0] //returns most likely option
 }
 
@@ -90,9 +90,16 @@ const getGameCover = async (game_id) => {
 
 	let coverInfo = res.data[0]
 
-	console.log("coverInfo", coverInfo)
-
 	return `https://images.igdb.com/igdb/image/upload/t_cover_big/${coverInfo.image_id}.jpg`
+}
+
+const getGameGenres = async (genres) => {
+	const filter = `fields name; where id = (${genres});`
+	const route = "/genres"
+
+	let res = await makeIgdbRequest(filter, route)
+	console.log("response", res, genres)
+	return res.data
 }
 
 module.exports = {
@@ -101,5 +108,8 @@ module.exports = {
 	},
 	getCoverArt: async (game_id) => {
 		return await getGameCover(game_id)
+	},
+	getGenres: async (genres) => {
+		return await getGameGenres(genres)
 	},
 }
