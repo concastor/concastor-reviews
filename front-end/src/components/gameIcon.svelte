@@ -27,7 +27,6 @@
     .game-container{
         width: 12vw;
         padding: 1vw;
-        /* padding-left: 0; */
         display: inline-block;
         transition: transform 250ms;
         cursor: pointer;

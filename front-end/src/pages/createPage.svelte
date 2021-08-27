@@ -1,31 +1,59 @@
 <script lang="ts">
     import GenreRadio from "../components/genreRadio.svelte";
     import ConfirmModal from "../shared/confirmModal.svelte";
-    import { Button , TextInput, TextArea, FileUploaderDropContainer } from "carbon-components-svelte";
+    import { Button , TextInput, TextArea, Loading  } from "carbon-components-svelte";
     import ScoreSelect from "../components/ScoreSelect.svelte";
     import type { Score } from "../types/Score.type";
+    import type { Game } from "../types/Game.type";
+    import {bs} from "../services/backendService"
+    import CreateSelection from "../components/CreateSelection.svelte"
 
 
+    let backendService = new bs()
+    
     
     let title : string
-    let genres : string[]
+    let genre : string[] = null
     let review : string
-
     let score : Score
-    let picLink : string
-
-    $: console.log("genres", score)
 
     let modalOpen = false
+    let SelectionModal = false
+    let loading = false
+
+    let possibleGames : Game[] = []
 
     
-    const handleSubmit = () =>{
+    const handleSubmit = async () =>{
         modalOpen = false
+        loading = true
+
+        const gameInfo : Game = {
+            title,
+            genre,
+            picLink : null,
+            review,
+            score,
+            igdb_id : null
+        }
+
+        let res = await backendService.createGame(gameInfo)
+
+        possibleGames = res.PossibleGames
+
+        console.log("possible games", possibleGames)
+        loading = false
+        SelectionModal = true
+
     }
 </script>
 
 <div class="main-container">
     <ConfirmModal open={modalOpen} on:approved={handleSubmit}/>
+    <CreateSelection open={SelectionModal} games={possibleGames}/>
+
+
+    <Loading active={loading}/>
 
     <h1>create</h1>
     <br>
@@ -36,7 +64,7 @@
     
     <div class="section">
         <p>genres</p>
-        <GenreRadio on:selected={(e)=> genres = e.detail}/>
+        <GenreRadio on:selected={(e)=> genre = e.detail}/>
     </div>
         
     <div class="section">
@@ -47,13 +75,6 @@
     <h3>Score</h3>
     <div class="section">
         <ScoreSelect bind:score/>
-    </div>
-
-    <div class="section">
-        <FileUploaderDropContainer
-        labelText="Drag and drop Cover Art here or click to upload"
-        
-        />
     </div>
 
     <Button on:click={(()=> modalOpen = !modalOpen)}>Create</Button>

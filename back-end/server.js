@@ -54,7 +54,8 @@ router.post(
 router.post(
 	"/game/create",
 	asyncHandler(async (req, res) => {
-		let response = await GameInfo.createGame(req.body.title)
+		console.log("req", req.body)
+		let response = await GameInfo.createGame(req.body)
 		res.json(response)
 	})
 )

@@ -62,7 +62,7 @@ const makeIgdbRequest = async (filters, route) => {
 			data: filters,
 		})
 	} catch (error) {
-		console.log("error", error)
+		console.log("error", error.data)
 	}
 }
 
@@ -77,9 +77,7 @@ const getIgdbId = async (title) => {
 	const route = "/games"
 
 	let res = await makeIgdbRequest(filter, route)
-
-	console.log("subanti", res.data)
-	return res.data[0] //returns most likely option
+	return res.data //returns most likely option
 }
 
 const getGameCover = async (game_id) => {
@@ -98,8 +96,7 @@ const getGameGenres = async (genres) => {
 	const route = "/genres"
 
 	let res = await makeIgdbRequest(filter, route)
-	console.log("response", res, genres)
-	return res.data
+	return res ? res.data : []
 }
 
 module.exports = {

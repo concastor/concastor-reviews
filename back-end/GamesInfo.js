@@ -29,19 +29,27 @@ class GamesInfo {
 		return game
 	}
 
-	async createGame(title) {
-		const game_info = await IgdbLoader.getId(title)
+	async createGame(game) {
+		let PossibleGames = []
+		const games_info = await IgdbLoader.getId(game.title)
 
-		console.log("retrieved info", game_info)
+		for (let game_info of games_info) {
+			let temp_game = {
+				...game,
+			}
 
-		const coverArtUrl = await igdbLoader.getCoverArt(game_info.cover)
+			const coverArtUrl = await igdbLoader.getCoverArt(game_info.cover)
+			const genres = await igdbLoader.getGenres(game_info.genres)
 
-		const genres = await igdbLoader.getGenres(game_info.genres)
+			temp_game.picLink = coverArtUrl
+			temp_game.genre = genres
+			temp_game.igdb_id = game_info.id
+
+			PossibleGames.push(temp_game)
+		}
 
 		return {
-			picLink: coverArtUrl,
-			igdb_id: game_info.id,
-			genre: genres,
+			PossibleGames,
 		}
 	}
 }

@@ -6,4 +6,5 @@ export type Game = {
 	picLink: string
 	review: string
 	score: Score
+	igdb_id: number
 }
