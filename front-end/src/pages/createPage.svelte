@@ -62,10 +62,10 @@
         <TextInput style="width: 50%" labelText="Game Title" placeholder="enter title of game" bind:value={title} />
     </div>
     
-    <div class="section">
+    <!-- <div class="section">
         <p>genres</p>
         <GenreRadio on:selected={(e)=> genre = e.detail}/>
-    </div>
+    </div> -->
         
     <div class="section">
         <TextArea labelText="Game review" placeholder="Enter the review..." bind:value={review}/>
