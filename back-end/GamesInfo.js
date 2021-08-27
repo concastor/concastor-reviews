@@ -44,6 +44,7 @@ class GamesInfo {
 			temp_game.picLink = coverArtUrl
 			temp_game.genre = genres
 			temp_game.igdb_id = game_info.id
+			temp_game.title = game_info.name
 
 			PossibleGames.push(temp_game)
 		}

@@ -41,7 +41,6 @@
 
         possibleGames = res.PossibleGames
 
-        console.log("possible games", possibleGames)
         loading = false
         SelectionModal = true
 

@@ -3,14 +3,19 @@
     import GameIcon from "./gameicon.svelte"
     import {fade, slide, scale} from 'svelte/transition'
     import GameStore from "../stores/GameStore"
+    import { navigate } from "svelte-routing";
 
+    const navigateToGame = (event) => {
+        let game = event.detail
+        navigate("/Review/" + game.title)
+    }
 
 </script>
 
 <div class="game-container">
     {#each $GameStore as game}
         <div in:scale>
-            <GameIcon {game}/>
+            <GameIcon {game} on:selected={navigateToGame}/>
         </div>
     {/each}
 

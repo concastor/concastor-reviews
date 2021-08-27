@@ -1,18 +1,23 @@
 <script lang="ts">
     import type {Game} from "../types/Game.type";
-    import { navigate } from "svelte-routing";
     import { Tag, ImageLoader } from "carbon-components-svelte";
+    import { createEventDispatcher } from 'svelte';
+    
     export let game : Game
+    export let showSelected : Boolean
 
-    const navigateToGame = () => {
-        navigate("/Review/" + game.title)
+    const dispatch = createEventDispatcher();
+
+    const submitted = () => {
+      dispatch("selected", game)
     }
+
 
 </script>
 
-<div class="game-container" on:click="{navigateToGame}">
+<div class="game-container" on:click={submitted}>
   
-  <span class="box-art">
+  <span class="box-art" class:selected="{showSelected}">
     <ImageLoader src={game.picLink} />
   </span>
   
@@ -42,6 +47,11 @@
         display: inline-flex;
         
         box-shadow: 0 0px 20px black;
+    }
+
+    .box-art.selected{
+      box-shadow: 0 0px 30px red;
+
     }
 
     .title{

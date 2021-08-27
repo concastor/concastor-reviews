@@ -73,7 +73,7 @@ const makeIgdbRequest = async (filters, route) => {
  * @return {string} the IGDB id of the game.
  */
 const getIgdbId = async (title) => {
-	const filter = `search "${title}"; fields id, cover, genres; where version_parent = null;`
+	const filter = `search "${title}"; fields id, cover, genres, name; where version_parent = null;`
 	const route = "/games"
 
 	let res = await makeIgdbRequest(filter, route)
