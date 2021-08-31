@@ -42,13 +42,22 @@
         possibleGames = res.PossibleGames
         loading = false
         SelectionModal = true
-
     }
+
+    const CreateGame = async(event) => {
+        let createGame = event.detail
+
+        SelectionModal = false
+        loading = true
+
+        let res = await backendService.addGameToDb(createGame)
+    }
+    
 </script>
 
 <div class="main-container">
     <ConfirmModal open={modalOpen} on:approved={handleSubmit}/>
-    <CreateSelection open={SelectionModal} games={possibleGames}/>
+    <CreateSelection open={SelectionModal} games={possibleGames} on:selected={CreateGame}/>
 
 
     <Loading active={loading}/>

@@ -5,11 +5,11 @@
     import { createEventDispatcher } from 'svelte';
 
 
+    const dispatch = createEventDispatcher();
 
     export let games : Game[] = []
 
     let selectedGame : Game 
-    const dispatch = createEventDispatcher();
 
 
     const submitted = (e) => {

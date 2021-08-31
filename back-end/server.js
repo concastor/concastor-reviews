@@ -43,7 +43,7 @@ router.get(
 
 //route for searching a specific game
 router.post(
-	"/search/game",
+	"/games/search",
 	asyncHandler(async (req, res) => {
 		let response = await GameInfo.findOneGame(req.body.title)
 		res.json(response)
@@ -52,7 +52,15 @@ router.post(
 
 //route for searching a specific game
 router.post(
-	"/game/create",
+	"/games/create",
+	asyncHandler(async (req, res) => {
+		let response = await GameInfo.createGame(req.body)
+		res.json(response)
+	})
+)
+
+router.post(
+	"/games/add",
 	asyncHandler(async (req, res) => {
 		let response = await GameInfo.createGame(req.body)
 		res.json(response)

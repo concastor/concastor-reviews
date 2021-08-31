@@ -23,7 +23,7 @@ class backendService {
 
 	getOneGame = async (title: string) => {
 		try {
-			const response = await axios.post(`${API_URL}/search/game`, { title })
+			const response = await axios.post(`${API_URL}/games/search`, { title })
 			return response.data
 
 			//handle error
@@ -33,6 +33,17 @@ class backendService {
 	}
 
 	createGame = async (game: Game) => {
+		try {
+			const response = await axios.post(`${API_URL}/games/create`, game)
+			return response.data
+
+			//handle error
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	addGameToDb = async (game: Game) => {
 		try {
 			const response = await axios.post(`${API_URL}/game/create`, game)
 			return response.data

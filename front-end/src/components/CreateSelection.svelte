@@ -3,6 +3,10 @@
   import type { Game } from "../types/Game.type";
   import Gameicon from "./gameicon.svelte";
   import SelectionGrid from "./SelectionGrid.svelte";
+  import { createEventDispatcher } from 'svelte';
+
+
+  const dispatch = createEventDispatcher();
 
   export let open = false
   export let games : Game[] = []
@@ -10,7 +14,10 @@
   let selectedGame : Game 
 
   const createGameDb = () => {
-      console.log("selectedGame", selectedGame)
+      // console.log("selectedGame", selectedGame)
+      dispatch("selected", selectedGame)
+
+
   }
 
 
