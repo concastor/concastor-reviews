@@ -51,6 +51,8 @@
         loading = true
 
         let res = await backendService.addGameToDb(createGame)
+
+        loading = false
     }
     
 </script>

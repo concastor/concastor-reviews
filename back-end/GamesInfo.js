@@ -16,8 +16,6 @@ class GamesInfo {
 
 		let allgames = await mongoClient.Games.find({}).toArray()
 
-		//TODO: remove, currently for testing
-		allgames = [...allgames, ...allgames]
 		return allgames
 	}
 
@@ -52,6 +50,14 @@ class GamesInfo {
 		return {
 			PossibleGames,
 		}
+	}
+
+	async addGame(game) {
+		let mongoClient = await retrieveMongo()
+
+		let result = await mongoClient.Games.insertOne(game)
+
+		return result
 	}
 }
 

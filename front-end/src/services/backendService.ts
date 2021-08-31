@@ -45,7 +45,7 @@ class backendService {
 
 	addGameToDb = async (game: Game) => {
 		try {
-			const response = await axios.post(`${API_URL}/game/create`, game)
+			const response = await axios.post(`${API_URL}/games/add`, game)
 			return response.data
 
 			//handle error
