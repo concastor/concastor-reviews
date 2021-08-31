@@ -1,5 +1,5 @@
 <script>
-    import GameGrid from '../components/gameGrid.svelte'
+    import GameGrid from '../shared/gameGrid.svelte'
     import RecentGame from "../components/RecentGame.svelte"
 
     //gets first value for most revent review

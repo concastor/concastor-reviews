@@ -2,6 +2,7 @@
   import { Modal } from "carbon-components-svelte";
   import type { Game } from "../types/Game.type";
   import Gameicon from "./gameicon.svelte";
+  import SelectionGrid from "./SelectionGrid.svelte";
 
   export let open = false
   export let games : Game[] = []
@@ -11,6 +12,9 @@
   const createGameDb = () => {
       console.log("selectedGame", selectedGame)
   }
+
+
+  
 
 </script>
 
@@ -26,9 +30,7 @@
   on:close
   on:submit={createGameDb}
 >
-  {#each games as game}
-      <Gameicon {game}  on:selected={(e)=> selectedGame = e.detail}  />
-  {/each}
+  <SelectionGrid {games} on:selected={(e)=> selectedGame = e.detail}/>
 </Modal>
 
 <style>

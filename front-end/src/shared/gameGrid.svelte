@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {Game} from "../types/Game.type"
-    import GameIcon from "./gameicon.svelte"
+    import GameIcon from "../components/gameicon.svelte"
     import {fade, slide, scale} from 'svelte/transition'
     import GameStore from "../stores/GameStore"
     import { navigate } from "svelte-routing";

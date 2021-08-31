@@ -40,7 +40,6 @@
         let res = await backendService.createGame(gameInfo)
 
         possibleGames = res.PossibleGames
-
         loading = false
         SelectionModal = true
 

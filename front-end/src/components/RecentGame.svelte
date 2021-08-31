@@ -3,7 +3,7 @@
 	import RightArrow from '../shared/rightArrow.svelte'
     import { navigate } from "svelte-routing";
     import {RecentGameStore} from "../stores/GameStore"
-    import { truncate } from "carbon-components-svelte/actions";
+    import {  Loading  } from "carbon-components-svelte";
     
     const navigateToGame = () => {
         console.log("forwared")
@@ -15,8 +15,7 @@
 
 <!-- loading block -->
 {#if $RecentGameStore === null}
-    <h1>loading</h1>
-
+    <Loading/>
 <!-- normal block -->
 {:else}
 

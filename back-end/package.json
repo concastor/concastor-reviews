@@ -4,6 +4,7 @@
 	"description": "the backend for the review sit",
 	"main": "server.js",
 	"dependencies": {
+		"D": "^1.0.0",
 		"axios": "^0.21.1",
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
@@ -15,7 +16,9 @@
 		"mongodb": "^3.6.9",
 		"realm": "^10.4.2"
 	},
-	"devDependencies": {},
+	"devDependencies": {
+		"nodemon": "^2.0.12"
+	},
 	"scripts": {
 		"test": "npm start-dev",
 		"start": "nodemon server.js"

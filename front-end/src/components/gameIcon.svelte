@@ -3,13 +3,13 @@
     import { Tag, ImageLoader } from "carbon-components-svelte";
     import { createEventDispatcher } from 'svelte';
     
-    export let game : Game
-    export let showSelected : Boolean
-
+    export let game : Game;
+    
     const dispatch = createEventDispatcher();
 
     const submitted = () => {
       dispatch("selected", game)
+
     }
 
 
@@ -17,7 +17,7 @@
 
 <div class="game-container" on:click={submitted}>
   
-  <span class="box-art" class:selected="{showSelected}">
+  <span class="box-art" >
     <ImageLoader src={game.picLink} />
   </span>
   
@@ -49,21 +49,22 @@
         box-shadow: 0 0px 20px black;
     }
 
-    .box-art.selected{
-      box-shadow: 0 0px 30px red;
+    .selected{
+      border-style: solid;
+      border-width: 5px;
 
     }
 
     .title{
         text-align: center;
     }
-
+/* 
     * :global(.card-media-16x9) {
     background-image: url(https://place-hold.it/320x180?text=16x9&fontsize=23);
   }
  
   * :global(.card-media-square) {
     background-image: url(https://place-hold.it/320x320?text=square&fontsize=23);
-  }
+  } */
 
 </style>
