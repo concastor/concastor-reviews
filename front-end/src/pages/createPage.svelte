@@ -92,9 +92,6 @@
     </div>
 
     <Button on:click={(()=> modalOpen = !modalOpen)}>Create</Button>
-
-
-
 </div>
 
 <style>

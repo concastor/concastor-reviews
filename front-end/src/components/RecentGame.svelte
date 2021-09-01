@@ -2,31 +2,31 @@
     import type {Game} from "../types/Game.type"
 	import RightArrow from '../shared/rightArrow.svelte'
     import { navigate } from "svelte-routing";
-    import {RecentGameStore} from "../stores/GameStore"
     import {  Loading  } from "carbon-components-svelte";
     
     const navigateToGame = () => {
         console.log("forwared")
-        navigate("/Review/" + $RecentGameStore.title)
+        navigate("/Review/" + recentGame.title)
     }
+
+    export let recentGame : Game = null
 
 
 </script>
 
-<!-- loading block -->
-{#if $RecentGameStore === null}
+
+{#if recentGame === null}
     <Loading/>
-<!-- normal block -->
 {:else}
 
 <div class="main-container">
         <div style="float: left;">
-            <img class="box-art" src={$RecentGameStore.picLink} alt="" />
+            <img class="box-art" src={recentGame.picLink} alt="" />
         </div>
         <div class="container">
             <!-- <br> -->
-            <h1>{$RecentGameStore.title}</h1>
-            <h2 >{$RecentGameStore.review}</h2>
+            <h1>{recentGame.title}</h1>
+            <h2 >{recentGame.review}</h2>
             
         </div>
         <div class="arrow">

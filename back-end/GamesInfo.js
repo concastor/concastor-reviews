@@ -14,7 +14,9 @@ class GamesInfo {
 	async allGameInfo() {
 		let mongoClient = await retrieveMongo()
 
-		let allgames = await mongoClient.Games.find({}).toArray()
+		let allgames = await mongoClient.Games.find({})
+			.sort({ $natural: -1 })
+			.toArray()
 
 		return allgames
 	}

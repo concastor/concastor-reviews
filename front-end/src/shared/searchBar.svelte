@@ -31,6 +31,7 @@
     .search{
         padding-top: 15px;
         margin-left: 1vw;
-        width: 40%;
+        width: 50%;
+        float: right;
     }
 </style>
