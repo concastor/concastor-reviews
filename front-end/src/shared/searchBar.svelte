@@ -22,7 +22,7 @@
 </script>
 
 <div class="search">
-    <Search {placeholder} bind:value={searchValue} on:keydown={handleEnter} on:clear={()=> submitSearch(null)}/>
+    <Search {placeholder} bind:value={searchValue} on:keydown={handleEnter} on:clear={()=> submitSearch("")}/>
 </div>
 
 

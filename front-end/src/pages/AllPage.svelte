@@ -9,14 +9,24 @@
     const backendService = new bs()
 
     let displayGames : Game[] = []
+    let noResultsFound : Boolean = false
 
     onMount(async () => {
         displayGames = await backendService.getAllGames()
 
     })
 
-    const searchRecieved = (event) => {
-        console.log("searched from component", event.detail)
+    const searchRecieved = async (event) => {
+        noResultsFound = false
+        let searchResults = await backendService.searchGame(event.detail)
+
+        console.log("search results", searchResults)
+
+        if (searchResults && searchResults.length) {
+            displayGames = searchResults
+        }else{
+            noResultsFound = true
+        }
     }
 </script>
 
@@ -28,9 +38,11 @@
         </div>
     </div>
 
-    <span>
-    </span>
-    <GameGrid {displayGames}/>
+    {#if noResultsFound}
+        <p>No results found</p>
+    {:else}
+        <GameGrid {displayGames}/>
+    {/if}
 </div>
 
 <style>

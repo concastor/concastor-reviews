@@ -61,6 +61,16 @@ class GamesInfo {
 
 		return result
 	}
+
+	async searchGame(query) {
+		let mongoClient = await retrieveMongo()
+
+		let result = await mongoClient.Games.find({
+			title: { $regex: query, $options: "i" },
+		}).toArray()
+
+		return result
+	}
 }
 
 module.exports.GamesInfo = GamesInfo

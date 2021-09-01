@@ -23,7 +23,7 @@ class backendService {
 
 	getOneGame = async (title: string) => {
 		try {
-			const response = await axios.post(`${API_URL}/games/search`, { title })
+			const response = await axios.post(`${API_URL}/games/one`, { title })
 			return response.data
 
 			//handle error
@@ -47,6 +47,16 @@ class backendService {
 		try {
 			const response = await axios.post(`${API_URL}/games/add`, game)
 			return response
+			//handle error
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	searchGame = async (query: string) => {
+		try {
+			const response = await axios.post(`${API_URL}/games/search`, { query })
+			return response.data
 			//handle error
 		} catch (error) {
 			console.log(error)
