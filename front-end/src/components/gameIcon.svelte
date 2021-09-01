@@ -49,22 +49,7 @@
         box-shadow: 0 0px 20px black;
     }
 
-    .selected{
-      border-style: solid;
-      border-width: 5px;
-
-    }
-
     .title{
         text-align: center;
     }
-/* 
-    * :global(.card-media-16x9) {
-    background-image: url(https://place-hold.it/320x180?text=16x9&fontsize=23);
-  }
- 
-  * :global(.card-media-square) {
-    background-image: url(https://place-hold.it/320x320?text=square&fontsize=23);
-  } */
-
 </style>

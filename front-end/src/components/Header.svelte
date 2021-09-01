@@ -12,7 +12,7 @@
         <Router>
             <nav>
                 <Link to="/">Home</Link>
-                <Link to="blog">All Reviews</Link>
+                <Link to="All">All Reviews</Link>
                 <Link to="blog">Top 10</Link>
                 <Link to="about">About</Link>
                 <Link to="Create">Create</Link>

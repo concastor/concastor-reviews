@@ -10,15 +10,22 @@
         navigate("/Review/" + game.title)
     }
 
+
 </script>
 
 <div class="game-container">
+
     {#each $GameStore as game}
         <div in:scale>
             <GameIcon {game} on:selected={navigateToGame}/>
         </div>
     {/each}
-
+    
+    <!-- <VirtualList items={games} let:item>
+        <div in:scale>
+            <GameIcon game={item} on:selected={navigateToGame}/>
+        </div>
+    </VirtualList> -->
 </div>
 
 

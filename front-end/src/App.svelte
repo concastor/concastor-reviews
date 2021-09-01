@@ -1,9 +1,12 @@
 <script lang="ts">
+	// require("dotenv").config()
+
 	import HomePage from './pages/homePage.svelte'
 	import GamePage from './pages/GamePage.svelte'
 	import CreatePage from './pages/createPage.svelte'
 	import Header from './components/Header.svelte'
 	import Footer from './components/Footer.svelte'
+	import AllPage from './pages/AllPage.svelte';
 
 	import { Router, Link, Route } from "svelte-routing";
 	import RightArrow from './shared/rightArrow.svelte'
@@ -19,6 +22,7 @@
 		  <Route path="Review/:title" let:params >
 				<GamePage title={params.title}/>
 		  </Route>
+		  <Route path="All" component="{AllPage}" /> 
 		  <Route path="Create" component="{CreatePage}" /> 
 		  <Route path="about" component="{RightArrow}" /> 
 		  <Route path="/"><HomePage/></Route>
