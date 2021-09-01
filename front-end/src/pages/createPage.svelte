@@ -7,6 +7,7 @@
     import type { Game } from "../types/Game.type";
     import {bs} from "../services/backendService"
     import CreateSelection from "../components/CreateSelection.svelte"
+    import StatusNotifcation from "../shared/statusNotifcation.svelte";
 
 
     let backendService = new bs()
@@ -20,6 +21,7 @@
     let modalOpen = false
     let SelectionModal = false
     let loading = false
+    let success = false
 
     let possibleGames : Game[] = []
 
@@ -51,7 +53,9 @@
         loading = true
 
         let res = await backendService.addGameToDb(createGame)
+        console.log("res", res)
 
+        success = true
         loading = false
     }
     
@@ -60,6 +64,7 @@
 <div class="main-container">
     <ConfirmModal open={modalOpen} on:approved={handleSubmit}/>
     <CreateSelection open={SelectionModal} games={possibleGames} on:selected={CreateGame}/>
+    <StatusNotifcation subtitle={"Review created"} bind:visible={success} />
 
 
     <Loading active={loading}/>

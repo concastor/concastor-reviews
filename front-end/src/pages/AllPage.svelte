@@ -33,9 +33,4 @@
         margin: auto;
     }
 
-    .search{
-        padding-top: 15px;
-        margin-left: 1vw;
-        width: 40%;
-    }
 </style>
