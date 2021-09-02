@@ -62,12 +62,22 @@ class GamesInfo {
 		return result
 	}
 
-	async searchGame(query) {
+	async searchGame(params) {
 		let mongoClient = await retrieveMongo()
 
-		let result = await mongoClient.Games.find({
-			title: { $regex: query, $options: "i" },
-		}).toArray()
+		let search = params.query
+			? { title: { $regex: params.query, $options: "i" } }
+			: null
+
+		let searchArr = [search]
+
+		searchArr = searchArr.filter((item) => {
+			return item != null
+		})
+
+		const query = { $and: searchArr }
+
+		let result = await mongoClient.Games.find(query).toArray()
 
 		return result
 	}

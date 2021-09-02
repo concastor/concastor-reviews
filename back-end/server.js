@@ -70,7 +70,7 @@ router.post(
 router.post(
 	"/games/search",
 	asyncHandler(async (req, res) => {
-		let response = await GameInfo.searchGame(req.body.query)
+		let response = await GameInfo.searchGame(req.body)
 		res.json(response)
 	})
 )
