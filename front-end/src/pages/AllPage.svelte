@@ -1,70 +1,74 @@
 <script lang="ts">
-    import GameGrid from '../shared/gameGrid.svelte'
-    import GameStore from "../stores/GameStore"
-    import SearchBar from '../shared/searchBar.svelte';
-    import { bs } from "../services/backendService"
-    import type { Game } from '../types/Game.type';
-    import { onMount } from 'svelte';
+	import GameGrid from "../shared/gameGrid.svelte"
+	import GameStore from "../stores/GameStore"
+	import SearchBar from "../shared/searchBar.svelte"
+	import SortOptions from "../components/SortOptions.svelte"
+	import { bs } from "../services/backendService"
+	import type { Game } from "../types/Game.type"
+	import { onMount } from "svelte"
+	import FilterOptions from "../components/FilterOptions.svelte"
 
-    const backendService = new bs()
+	const backendService = new bs()
 
-    let displayGames : Game[] = []
-    let noResultsFound : Boolean = false
+	let displayGames: Game[] = []
+	let noResultsFound: Boolean = false
 
-    onMount(async () => {
-        displayGames = await backendService.getAllGames()
+	onMount(async () => {
+		displayGames = await backendService.getAllGames()
+	})
 
-    })
+	const searchRecieved = async (event) => {
+		noResultsFound = false
+		let searchResults = await backendService.searchGame(event.detail)
 
-    const searchRecieved = async (event) => {
-        noResultsFound = false
-        let searchResults = await backendService.searchGame(event.detail)
-
-        console.log("search results", searchResults)
-
-        if (searchResults && searchResults.length) {
-            displayGames = searchResults
-        }else{
-            noResultsFound = true
-        }
-    }
+		if (searchResults && searchResults.length) {
+			displayGames = searchResults
+		} else {
+			noResultsFound = true
+		}
+	}
 </script>
 
 <div class="main-container">
-    <div class="title-container">
-        <h1 class="title">All Reviews</h1>
-        <div class="filters">
-            <SearchBar placeholder={"Search reviews..."} on:searched={searchRecieved}/>
-        </div>
-    </div>
+	<div class="title-container">
+		<h1 class="title">All Reviews</h1>
+		<div class="filters">
+			<SearchBar
+				placeholder={"Search reviews..."}
+				on:searched={searchRecieved}
+			/>
+			<SortOptions />
+			<FilterOptions />
+		</div>
+	</div>
 
-    {#if noResultsFound}
-        <p>No results found</p>
-    {:else}
-        <GameGrid {displayGames}/>
-    {/if}
+	{#if noResultsFound}
+		<p>No results found</p>
+	{:else}
+		<GameGrid {displayGames} />
+	{/if}
 </div>
 
 <style>
-    .title{
-        float: left;
-        margin: 5px;
-    }
+	.title {
+		float: left;
+		margin: 5px;
+	}
 
-    .filters{
-        float: right;
-        width: 35vw;
-        padding-right: 20px;
-    }
+	.filters {
+		float: right;
+		width: 45vw;
+		padding-right: 20px;
+	}
 
-    .title-container{
-        padding-left : 1vw;
-        border-bottom: 2px solid black;
-    }
+	.title-container {
+		padding-left: 1vw;
+		border-bottom: 2px solid black;
+	}
 
-    .main-container{
-        display: grid;
-        max-width: 60%;
-        margin: auto;
-    }
+	.main-container {
+		display: grid;
+		max-width: 60%;
+		margin: auto;
+	}
 </style>

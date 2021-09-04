@@ -75,7 +75,7 @@ class GamesInfo {
 			return item != null
 		})
 
-		const query = { $and: searchArr }
+		const query = searchArr.length ? { $and: searchArr } : ""
 
 		let result = await mongoClient.Games.find(query).toArray()
 
