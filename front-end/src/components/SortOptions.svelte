@@ -12,8 +12,7 @@
 
 <style>
 	.container {
-		margin-top: 1vh;
-		width: 15%;
+		margin-top: 4vh;
 		float: right;
 	}
 </style>

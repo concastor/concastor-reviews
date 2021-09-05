@@ -11,6 +11,7 @@ const authRouter = require("./auth")
 
 const GI = require("./GamesInfo")
 const API_URL = process.env.API_URL || `http://localhost:4000/api`
+const CLIENT_URL = process.env.API_URL || `http://localhost:5000`
 
 let GameInfo = new GI.GamesInfo()
 
@@ -62,7 +63,7 @@ const strategy = new Auth0Strategy(
  * APP Configuration
  */
 
-app.use(cors())
+app.use(cors({ origin: CLIENT_URL }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -87,20 +88,18 @@ passport.deserializeUser((user, done) => {
 
 var router = express.Router()
 
+app.use((req, res, next) => {
+	res.locals.isAuthenticated = req.isAuthenticated()
+	next()
+})
+
 //register routes
 app.use("/api", router)
 
-app.use("/", authRouter)
+app.use("/auth", authRouter)
 
 // ROUTES FOR API
 // =============================================================================
-
-//route for user login using passport
-app.post("/login", passport.authenticate("local"), function (req, res) {
-	// If this function gets called, authentication was successful.
-	// `req.user` contains the authenticated user.
-	res.redirect("/users/" + req.user.username)
-})
 
 // default route to make sure everything is working (accessed at GET http://localhost:4000/api)
 router.get("/", function (req, res) {

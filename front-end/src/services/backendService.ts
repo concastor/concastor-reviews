@@ -3,6 +3,7 @@ import type { Game } from "../types/Game.type"
 
 // const API_URL = process.env.API_URL || `http://localhost:4000/api`
 const API_URL = `http://localhost:4000/api`
+const AUTH_URL = `http://localhost:4000/auth`
 
 axios.defaults.headers.common = {
 	"Content-Type": "application/json",
@@ -56,6 +57,16 @@ class backendService {
 	searchGame = async (query: string) => {
 		try {
 			const response = await axios.post(`${API_URL}/games/search`, { query })
+			return response.data
+			//handle error
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	loginUser = async () => {
+		try {
+			const response = await axios.get(`${AUTH_URL}/login`)
 			return response.data
 			//handle error
 		} catch (error) {

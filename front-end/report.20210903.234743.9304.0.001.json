@@ -1,0 +1,429 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20210903.234743.9304.0.001.json",
+    "dumpEventTime": "2021-09-03T23:47:43Z",
+    "dumpEventTimeStamp": "1630727263675",
+    "processId": 9304,
+    "cwd": "C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\concastor-reviews\\front-end",
+    "commandLine": [
+      "node",
+      "C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\concastor-reviews\\front-end\\node_modules\\.bin\\\\..\\rollup\\dist\\bin\\rollup",
+      "-c",
+      "-w"
+    ],
+    "nodejsVersion": "v12.14.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.14.1",
+      "v8": "7.7.299.13-node.16",
+      "uv": "1.33.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.14.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.19042",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "AMD FX-9830P RADEON R7, 12 COMPUTE CORES 4C+8G ",
+        "speed": 2994,
+        "user": 15895375,
+        "nice": 0,
+        "sys": 25871046,
+        "idle": 295135843,
+        "irq": 739250
+      },
+      {
+        "model": "AMD FX-9830P RADEON R7, 12 COMPUTE CORES 4C+8G ",
+        "speed": 2994,
+        "user": 11595906,
+        "nice": 0,
+        "sys": 16990171,
+        "idle": 308315984,
+        "irq": 147562
+      },
+      {
+        "model": "AMD FX-9830P RADEON R7, 12 COMPUTE CORES 4C+8G ",
+        "speed": 2994,
+        "user": 6389046,
+        "nice": 0,
+        "sys": 8255406,
+        "idle": 322257609,
+        "irq": 105875
+      },
+      {
+        "model": "AMD FX-9830P RADEON R7, 12 COMPUTE CORES 4C+8G ",
+        "speed": 2994,
+        "user": 4287640,
+        "nice": 0,
+        "sys": 4465359,
+        "idle": 328149062,
+        "irq": 194390
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "b0:52:16:3c:d9:67",
+        "address": "2605:b100:e000:a9ed:44eb:7970:225:b141",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "b0:52:16:3c:d9:67",
+        "address": "2605:b100:e000:a9ed:6d48:cb86:758b:3f0b",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "b0:52:16:3c:d9:67",
+        "address": "fe80::44eb:7970:225:b141",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 23
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "b0:52:16:3c:d9:67",
+        "address": "192.168.2.22",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "DESKTOP-4JS7A11"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff77e771759",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x00007ff77e775b7c",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28316"
+    },
+    {
+      "pc": "0x00007ff77e774b38",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24152"
+    },
+    {
+      "pc": "0x00007ff77e86433b",
+      "symbol": "v8::base::CPU::has_sse+37723"
+    },
+    {
+      "pc": "0x00007ff77f068c5e",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x00007ff77f050ca1",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x00007ff77ef1e56c",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x00007ff77ef29910",
+      "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
+    },
+    {
+      "pc": "0x00007ff77ef26444",
+      "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
+    },
+    {
+      "pc": "0x00007ff77ef1bcd3",
+      "symbol": "v8::internal::Heap::CollectGarbage+1283"
+    },
+    {
+      "pc": "0x00007ff77ef1a4a4",
+      "symbol": "v8::internal::Heap::AddRetainedMap+2356"
+    },
+    {
+      "pc": "0x00007ff77ef3b775",
+      "symbol": "v8::internal::Factory::NewFillerObject+53"
+    },
+    {
+      "pc": "0x00007ff77eca7a49",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+4057"
+    },
+    {
+      "pc": "0x00007ff77f49463d",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+567949"
+    },
+    {
+      "pc": "0x00007ff77f45c067",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+337079"
+    },
+    {
+      "pc": "0x000001bdaf1e90bc",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2141360128,
+    "totalCommittedMemory": 2141360128,
+    "usedMemory": 2100516200,
+    "availableMemory": 58721768,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 2097152,
+        "committedMemory": 2097152,
+        "capacity": 1047488,
+        "used": 322528,
+        "available": 724960
+      },
+      "old_space": {
+        "memorySize": 2094116864,
+        "committedMemory": 2094116864,
+        "capacity": 2056590384,
+        "used": 2056325808,
+        "available": 264576
+      },
+      "code_space": {
+        "memorySize": 2260992,
+        "committedMemory": 2260992,
+        "capacity": 1922208,
+        "used": 1922208,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 1576960,
+        "committedMemory": 1576960,
+        "capacity": 1042640,
+        "used": 1042640,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 40452096,
+        "committedMemory": 40452096,
+        "capacity": 40348000,
+        "used": 40348000,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 593920,
+        "committedMemory": 593920,
+        "capacity": 522720,
+        "used": 522720,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047488,
+        "used": 0,
+        "available": 1047488
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 450.062,
+    "kernelCpuSeconds": 751.14,
+    "cpuConsumptionPercent": 9.92155,
+    "maxRss": 2224066560,
+    "pageFaults": {
+      "IORequired": 1519176,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 6477,
+      "writes": 34
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=C:": "C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\concastor-reviews\\front-end",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\conca\\AppData\\Roaming",
+    "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_47768_WGCMNWYILCFOWYXH",
+    "COLOR": "1",
+    "COLORTERM": "truecolor",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DESKTOP-4JS7A11",
+    "ComSpec": "C:\\WINDOWS\\system32\\cmd.exe",
+    "dp0": "C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\concastor-reviews\\front-end\\node_modules\\.bin\\",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "EDITOR": "notepad.exe",
+    "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+    "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "GIT_ASKPASS": "c:\\Users\\conca\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh",
+    "HOME": "C:\\Users\\conca",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\conca",
+    "INIT_CWD": "C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\concastor-reviews\\front-end",
+    "IntelliJ IDEA": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2019.2.3\\bin;",
+    "LANG": "en_US.UTF-8",
+    "LOCALAPPDATA": "C:\\Users\\conca\\AppData\\Local",
+    "LOGONSERVER": "\\\\DESKTOP-4JS7A11",
+    "NODE": "C:\\Program Files\\nodejs\\node.exe",
+    "NODE_EXE": "C:\\Program Files\\nodejs\\\\node.exe",
+    "NPM_CLI_JS": "C:\\Users\\conca\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js",
+    "npm_command": "run-script",
+    "npm_config_cache": "C:\\Users\\conca\\AppData\\Local\\npm-cache",
+    "npm_config_globalconfig": "C:\\Users\\conca\\AppData\\Roaming\\npm\\etc\\npmrc",
+    "npm_config_global_prefix": "C:\\Users\\conca\\AppData\\Roaming\\npm",
+    "npm_config_init_module": "C:\\Users\\conca\\.npm-init.js",
+    "npm_config_local_prefix": "C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\concastor-reviews\\front-end",
+    "npm_config_metrics_registry": "https://registry.npmjs.org/",
+    "npm_config_node_gyp": "C:\\Users\\conca\\AppData\\Roaming\\npm\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js",
+    "npm_config_noproxy": "",
+    "npm_config_prefix": "C:\\Users\\conca\\AppData\\Roaming\\npm",
+    "npm_config_userconfig": "C:\\Users\\conca\\.npmrc",
+    "npm_config_user_agent": "npm/7.22.0 node/v12.14.1 win32 x64 workspaces/false",
+    "npm_execpath": "C:\\Users\\conca\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js",
+    "npm_lifecycle_event": "dev",
+    "npm_lifecycle_script": "rollup -c -w",
+    "npm_node_execpath": "C:\\Program Files\\nodejs\\node.exe",
+    "npm_package_json": "C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\concastor-reviews\\front-end\\package.json",
+    "npm_package_name": "svelte-app",
+    "npm_package_version": "1.0.0",
+    "NPM_PREFIX_NPM_CLI_JS": "C:\\Users\\conca\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js",
+    "NUMBER_OF_PROCESSORS": "4",
+    "OneDrive": "C:\\Users\\conca\\OneDrive",
+    "OneDriveConsumer": "C:\\Users\\conca\\OneDrive",
+    "OPENSSL_CONF": "C:\\Program Files\\PostgreSQL\\psqlODBC\\etc\\openssl.cnf",
+    "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
+    "OS": "Windows_NT",
+    "Path": "C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\concastor-reviews\\front-end\\node_modules\\.bin;C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\concastor-reviews\\node_modules\\.bin;C:\\Users\\conca\\OneDrive\\Documents\\GitHub\\node_modules\\.bin;C:\\Users\\conca\\OneDrive\\Documents\\node_modules\\.bin;C:\\Users\\conca\\OneDrive\\node_modules\\.bin;C:\\Users\\conca\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Users\\conca\\AppData\\Roaming\\npm\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\PuTTY\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Users\\conca\\AppData\\Local\\Programs\\Python\\Python37\\Scripts\\;C:\\Users\\conca\\AppData\\Local\\Programs\\Python\\Python37\\;C:\\Users\\conca\\AppData\\Local\\Programs\\Python\\Python38\\Scripts\\;C:\\Users\\conca\\AppData\\Local\\Programs\\Python\\Python38\\;C:\\Users\\conca\\AppData\\Local\\Programs\\Python\\Python37-32\\Scripts\\;C:\\Users\\conca\\AppData\\Local\\Programs\\Python\\Python37-32\\;C:\\Program Files\\Java\\jdk1.8.0_201\\bin;C:\\Users\\conca\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\conca\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\JetBrains\\PyCharm 2019.1.1\\bin;;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2019.2.3\\bin;;C:\\Users\\conca\\AppData\\Roaming\\npm;C:\\Users\\conca\\AppData\\Local\\GitHubDesktop\\bin;",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC;.CPL",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "AMD64 Family 21 Model 101 Stepping 1, AuthenticAMD",
+    "PROCESSOR_LEVEL": "21",
+    "PROCESSOR_REVISION": "6501",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Users\\conca\\OneDrive\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "PyCharm": "C:\\Program Files\\JetBrains\\PyCharm 2019.1.1\\bin;",
+    "pylint": "C:\\Users\\conca\\AppData\\Roaming\\Python\\Python36\\Scripts",
+    "ROLLUP_WATCH": "true",
+    "SESSIONNAME": "Console",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\conca\\AppData\\Local\\Temp",
+    "TERM_PROGRAM": "vscode",
+    "TERM_PROGRAM_VERSION": "1.60.0",
+    "TMP": "C:\\Users\\conca\\AppData\\Local\\Temp",
+    "USERDOMAIN": "DESKTOP-4JS7A11",
+    "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-4JS7A11",
+    "USERNAME": "conca",
+    "USERPROFILE": "C:\\Users\\conca",
+    "VBOX_MSI_INSTALL_PATH": "C:\\Program Files\\Oracle\\VirtualBox\\",
+    "VSCODE_GIT_ASKPASS_MAIN": "c:\\Users\\conca\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js",
+    "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\conca\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+    "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-d6d2cc50c3-sock",
+    "windir": "C:\\WINDOWS",
+    "_prog": "node"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+    "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+    "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+    "C:\\WINDOWS\\System32\\WS2_32.dll",
+    "C:\\WINDOWS\\System32\\RPCRT4.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\System32\\msvcrt.dll",
+    "C:\\WINDOWS\\System32\\ucrtbase.dll",
+    "C:\\WINDOWS\\System32\\sechost.dll",
+    "C:\\WINDOWS\\System32\\USER32.dll",
+    "C:\\WINDOWS\\System32\\win32u.dll",
+    "C:\\WINDOWS\\System32\\GDI32.dll",
+    "C:\\WINDOWS\\System32\\gdi32full.dll",
+    "C:\\WINDOWS\\System32\\msvcp_win.dll",
+    "C:\\WINDOWS\\System32\\PSAPI.DLL",
+    "C:\\WINDOWS\\System32\\CRYPT32.dll",
+    "C:\\WINDOWS\\System32\\bcrypt.dll",
+    "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+    "C:\\WINDOWS\\System32\\IMM32.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+    "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+    "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\WINDOWS\\system32\\uxtheme.dll",
+    "C:\\WINDOWS\\System32\\combase.dll",
+    "C:\\WINDOWS\\system32\\mswsock.dll",
+    "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+    "C:\\WINDOWS\\System32\\bcryptprimitives.dll",
+    "C:\\WINDOWS\\System32\\NSI.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\DNSAPI.dll",
+    "C:\\WINDOWS\\system32\\napinsp.dll",
+    "C:\\WINDOWS\\system32\\pnrpnsp.dll",
+    "C:\\WINDOWS\\system32\\wshbth.dll",
+    "C:\\WINDOWS\\system32\\NLAapi.dll",
+    "C:\\WINDOWS\\System32\\winrnr.dll"
+  ]
+}

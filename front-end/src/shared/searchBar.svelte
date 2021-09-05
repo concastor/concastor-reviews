@@ -33,7 +33,7 @@
 	.search {
 		padding-top: 15px;
 		margin-left: 1vw;
-		width: 50%;
+		/* width: 50%; */
 		float: right;
 	}
 </style>
