@@ -6,6 +6,28 @@ const retrieveMongo = async () => {
 	return await MongoService.getDb()
 }
 
+//EXTERNAL FUNCTIONS
+
+const getSort = (sortParam) => {
+	switch (sortParam) {
+		case "Title":
+			return { title: 1 }
+		case "Rating":
+			return { "score.overall": -1 }
+		default:
+			return { $natural: -1 }
+	}
+}
+
+const getFilter = (filterParam) => {
+	switch (filterParam) {
+		case "Score":
+			return { "score.overall": { $gt: 80 } }
+		default:
+			return null
+	}
+}
+
 class GamesInfo {
 	constructor() {
 		//   this.mongoClient = retrieveMongo()
@@ -65,11 +87,16 @@ class GamesInfo {
 	async searchGame(params) {
 		let mongoClient = await retrieveMongo()
 
+		let filter = getFilter(params.filter)
+		let sortMethod = getSort(params.sort)
+
 		let search = params.query
 			? { title: { $regex: params.query, $options: "i" } }
 			: null
 
-		let searchArr = [search]
+		let sortObj = { ...sortMethod }
+
+		let searchArr = [search, filter]
 
 		searchArr = searchArr.filter((item) => {
 			return item != null
@@ -77,7 +104,10 @@ class GamesInfo {
 
 		const query = searchArr.length ? { $and: searchArr } : ""
 
-		let result = await mongoClient.Games.find(query).toArray()
+		console.log("filters", searchArr)
+
+		let result = await mongoClient.Games.find(query).sort(sortObj).toArray()
+		// console.log("filters", result)
 
 		return result
 	}

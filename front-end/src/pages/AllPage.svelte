@@ -13,19 +13,33 @@
 	let displayGames: Game[] = []
 	let noResultsFound: Boolean = false
 
+	let search = null
+	let filter = null
+	let sort = null
+
 	onMount(async () => {
 		displayGames = await backendService.getAllGames()
 	})
 
-	const searchRecieved = async (event) => {
+	const makeSearch = async () => {
 		noResultsFound = false
-		let searchResults = await backendService.searchGame(event.detail)
+		let searchResults = await backendService.searchGame(search, filter, sort)
 
 		if (searchResults && searchResults.length) {
 			displayGames = searchResults
 		} else {
 			noResultsFound = true
 		}
+	}
+
+	const searchRecieved = async (event) => {
+		search = event.detail
+		makeSearch()
+	}
+
+	const sortSelected = async (event) => {
+		sort = event.detail
+		makeSearch()
 	}
 </script>
 
@@ -37,7 +51,7 @@
 				placeholder={"Search reviews..."}
 				on:searched={searchRecieved}
 			/>
-			<SortOptions />
+			<SortOptions on:selected={sortSelected} />
 			<FilterOptions />
 		</div>
 	</div>

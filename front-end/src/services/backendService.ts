@@ -53,9 +53,13 @@ class backendService {
 		}
 	}
 
-	searchGame = async (query: string) => {
+	searchGame = async (query: string, filter: string, sort: string) => {
 		try {
-			const response = await axios.post(`${API_URL}/games/search`, { query })
+			const response = await axios.post(`${API_URL}/games/search`, {
+				query,
+				filter,
+				sort,
+			})
 			return response.data
 			//handle error
 		} catch (error) {
