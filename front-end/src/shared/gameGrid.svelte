@@ -10,7 +10,8 @@
 
 	const navigateToGame = (event) => {
 		let game = event.detail
-		navigate("/Review/" + game.title)
+		let url = game.title.replace(/\s+/g, "-")
+		navigate("/Review/" + url)
 	}
 </script>
 
@@ -20,12 +21,6 @@
 			<GameIcon {game} on:selected={navigateToGame} />
 		</div>
 	{/each}
-
-	<!-- <VirtualList items={games} let:item>
-        <div in:scale>
-            <GameIcon game={item} on:selected={navigateToGame}/>
-        </div>
-    </VirtualList> -->
 </div>
 
 <style>

@@ -11,7 +11,7 @@
 	const backendService = new bs()
 
 	let displayGames: Game[] = []
-	let noResultsFound: Boolean = false
+	let loading: Boolean = false
 
 	let search = null
 	let filter = null
@@ -22,14 +22,16 @@
 	})
 
 	const makeSearch = async () => {
-		noResultsFound = false
+		loading = true
+
+		displayGames = []
 		let searchResults = await backendService.searchGame(search, filter, sort)
 
 		if (searchResults && searchResults.length) {
 			displayGames = searchResults
-		} else {
-			noResultsFound = true
 		}
+
+		loading = false
 	}
 
 	const searchRecieved = async (event) => {
@@ -56,7 +58,7 @@
 		</div>
 	</div>
 
-	{#if noResultsFound}
+	{#if !loading && !displayGames.length}
 		<p>No results found</p>
 	{:else}
 		<GameGrid {displayGames} />

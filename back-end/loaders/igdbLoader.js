@@ -88,7 +88,7 @@ const getGameCover = async (game_id) => {
 
 	let coverInfo = res.data[0]
 
-	return `https://images.igdb.com/igdb/image/upload/t_cover_big/${coverInfo.image_id}.jpg`
+	return coverInfo.image_id
 }
 
 const getGameGenres = async (genres) => {

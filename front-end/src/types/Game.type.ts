@@ -3,7 +3,7 @@ import type { Score } from "./Score.type"
 export type Game = {
 	title: string
 	genre: any[]
-	picLink: string
+	pic_id: string
 	review: string
 	score: Score
 	igdb_id: number

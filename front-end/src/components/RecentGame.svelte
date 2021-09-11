@@ -1,77 +1,71 @@
-<script lang='ts'>
-    import type {Game} from "../types/Game.type"
-	import RightArrow from '../shared/rightArrow.svelte'
-    import { navigate } from "svelte-routing";
-    import {  Loading  } from "carbon-components-svelte";
-    
-    const navigateToGame = () => {
-        console.log("forwared")
-        navigate("/Review/" + recentGame.title)
-    }
+<script lang="ts">
+	import type { Game } from "../types/Game.type"
+	import RightArrow from "../shared/rightArrow.svelte"
+	import { navigate } from "svelte-routing"
+	import { Loading } from "carbon-components-svelte"
 
-    export let recentGame : Game = null
+	const navigateToGame = () => {
+		console.log("forwared")
+		navigate("/Review/" + recentGame.title)
+	}
 
-
+	export let recentGame: Game = null
 </script>
 
-
 {#if recentGame === null}
-    <Loading/>
+	<Loading />
 {:else}
-
-<div class="main-container">
-        <div style="float: left;">
-            <img class="box-art" src={recentGame.picLink} alt="" />
-        </div>
-        <div class="container">
-            <!-- <br> -->
-            <h1>{recentGame.title}</h1>
-            <h2 >{recentGame.review}</h2>
-            
-        </div>
-        <div class="arrow">
-            <RightArrow on:pressed="{navigateToGame}"/>
-        </div>
-    </div>
+	<div class="main-container">
+		<div style="float: left;">
+			<img
+				class="box-art"
+				src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${recentGame.pic_id}.jpg`}
+				alt=""
+			/>
+		</div>
+		<div class="container">
+			<!-- <br> -->
+			<h1>{recentGame.title}</h1>
+			<h2>{recentGame.review}</h2>
+		</div>
+		<div class="arrow">
+			<RightArrow on:pressed={navigateToGame} />
+		</div>
+	</div>
 {/if}
 
 <style>
+	.main-container {
+		max-height: 43em;
+		padding-top: 10px;
+		/* padding-bottom: 20px; */
+	}
 
-    .main-container{
-        max-height: 43em;
-        padding-top: 10px;
-        /* padding-bottom: 20px; */
-        
-    }
+	.arrow {
+		margin: 1em;
+		float: right;
+		margin-right: 10px;
+	}
+	.container {
+		float: left;
+		height: auto;
+		width: 60%;
+		height: 85%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: pre-wrap;
+	}
+	.box-art {
+		max-width: 20vw;
+		margin: 1vw;
+		box-shadow: 0px 0px 20px black;
+		/* float: left; */
+	}
 
-    .arrow{
-        margin: 1em;
-        float: right;
-        margin-right: 10px;
-    }
-    .container{
-        float: left;
-        height: auto;
-        width : 60%;
-        height: 85%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: pre-wrap;
-        
-    }
-    .box-art{
-        max-width: 20vw;
-        margin: 1vw;
-        box-shadow: 0px 0px 20px black;
-        /* float: left; */
-    }
-
-    h2{
-        margin: 0;
-        
-    }
-    h1{
-        margin-bottom: 0;
-    }
-
+	h2 {
+		margin: 0;
+	}
+	h1 {
+		margin-bottom: 0;
+	}
 </style>

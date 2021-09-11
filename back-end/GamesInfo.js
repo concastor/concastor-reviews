@@ -60,10 +60,10 @@ class GamesInfo {
 				...game,
 			}
 
-			const coverArtUrl = await igdbLoader.getCoverArt(game_info.cover)
+			const coverArtID = await igdbLoader.getCoverArt(game_info.cover)
 			const genres = await igdbLoader.getGenres(game_info.genres)
 
-			temp_game.picLink = coverArtUrl
+			temp_game.pic_id = coverArtID
 			temp_game.genre = genres
 			temp_game.igdb_id = game_info.id
 			temp_game.title = game_info.name
@@ -103,8 +103,6 @@ class GamesInfo {
 		})
 
 		const query = searchArr.length ? { $and: searchArr } : ""
-
-		console.log("filters", searchArr)
 
 		let result = await mongoClient.Games.find(query).sort(sortObj).toArray()
 		// console.log("filters", result)
