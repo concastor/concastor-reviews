@@ -20,7 +20,7 @@
 <style>
 	.container {
 		margin-top: 1vh;
-		width: 15%;
+		/* width: 15%; */
 		float: right;
 	}
 </style>

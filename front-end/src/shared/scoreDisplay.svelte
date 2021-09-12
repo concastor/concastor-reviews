@@ -1,21 +1,24 @@
 <script lang="ts">
-    // import CircularProgress from '@smui/circular-progress';
+	import type { Score } from "../types/Score.type"
 
+	// import CircularProgress from '@smui/circular-progress';
 
-    
-    let score = 10
-    let closed = false
-  </script>
+	export let score: Number
+</script>
 
-  <div>
-    {score}
+<div class="scores-container">
+	{score}
+</div>
 
-  </div>
-
-
-  <style>
-    
-
-  
-  </style>
-  
+<style>
+	.scores-container {
+		height: 2em;
+		width: 2em;
+		background-color: yellowgreen;
+		font-size: 42px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 25px;
+	}
+</style>

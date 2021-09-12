@@ -7,6 +7,7 @@
 	import type { Game } from "../types/Game.type"
 	import { onMount } from "svelte"
 	import FilterOptions from "../components/FilterOptions.svelte"
+	import { Grid, Row, Column } from "carbon-components-svelte"
 
 	const backendService = new bs()
 
@@ -47,15 +48,22 @@
 
 <div class="main-container">
 	<div class="title-container">
-		<h1 class="title">All Reviews</h1>
-		<div class="filters">
-			<SearchBar
-				placeholder={"Search reviews..."}
-				on:searched={searchRecieved}
-			/>
-			<SortOptions on:selected={sortSelected} />
-			<FilterOptions />
-		</div>
+		<Grid>
+			<Row>
+				<Column><h1 class="title">All Reviews</h1></Column>
+				<!-- <Column>Column</Column> -->
+				<Column>
+					<SortOptions on:selected={sortSelected} />
+					<FilterOptions />
+				</Column>
+				<Column>
+					<SearchBar
+						placeholder={"Search reviews..."}
+						on:searched={searchRecieved}
+					/></Column
+				>
+			</Row>
+		</Grid>
 	</div>
 
 	{#if !loading && !displayGames.length}
