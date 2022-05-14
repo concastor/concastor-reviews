@@ -1,7 +1,7 @@
 {
 	"name": "back-end",
 	"version": "1.0.0",
-	"description": "the backend for the review sit",
+	"description": "the backend for the review site",
 	"main": "server.js",
 	"dependencies": {
 		"D": "^1.0.0",
