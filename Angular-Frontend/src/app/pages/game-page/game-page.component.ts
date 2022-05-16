@@ -24,7 +24,8 @@ export class GamePageComponent implements OnInit {
     this.backend.getOneGame(this.title).subscribe((data) => {
       this.game = data;
       this.IMG_URL = `https://images.igdb.com/igdb/image/upload/t_720p/${this.game.pic_id}.jpg`;
-      // this.IMG_URL = `https://images.igdb.com/igdb/image/upload/t_cover_big/${this.game.pic_id}.jpg`;
+
+      console.log('game data', this.game);
     });
   }
 }

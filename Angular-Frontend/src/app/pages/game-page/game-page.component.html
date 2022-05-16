@@ -5,11 +5,25 @@
   </mat-grid-tile>
   <ng-container *ngFor="let score of game.score | keyvalue">
     <mat-grid-tile *ngIf="score.key != 'overall'" [colspan]="3" [rowspan]="2">
+      <app-score-display></app-score-display>
+
       <p class="score-display">
         <b>{{ score.key }}</b> : {{ score.value }}
       </p>
     </mat-grid-tile>
   </ng-container>
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+    <h2>game time:</h2>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+    <h2>maybe generes can go here</h2>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="3" [rowspan]="2">
+    <mat-divider></mat-divider>
+    <app-score-display></app-score-display>
+    <p class="score-display"><b>Overall Score</b> : {{ game.score.overall }}</p>
+  </mat-grid-tile>
 </mat-grid-list>
 
-<!-- <img src="{{ IMG_URL }}" alt="" /> -->
+<h1>Review</h1>
+<mat-divider></mat-divider>

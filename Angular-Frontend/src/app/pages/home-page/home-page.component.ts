@@ -17,8 +17,6 @@ export class HomePageComponent implements OnInit {
     this.backend.getAllGames().subscribe((data) => {
       this.games = data;
       this.recentGame = data[0];
-
-      console.log('game data', this.games, this.recentGame);
     });
   }
 }

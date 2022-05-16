@@ -1,0 +1,17 @@
+.box {
+  float: left;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  clear: both;
+  background-color: lightgreen;
+  border-radius: 50%;
+  color: black;
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}

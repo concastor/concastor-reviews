@@ -18,6 +18,7 @@ import { GameIconComponent } from './components/game-icon/game-icon.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { ScoreDisplayComponent } from './shared/score-display/score-display.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ScoreDisplayComponent } from './shared/score-display/score-display.comp
     HttpClientModule,
     MatGridListModule,
     MatCardModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
