@@ -14,6 +14,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { GameGridComponent } from './components/game-grid/game-grid.component';
 import { RecentGameComponent } from './components/recent-game/recent-game.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GameIconComponent } from './components/game-icon/game-icon.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     AllPageComponent,
     GameGridComponent,
     RecentGameComponent,
+    GameIconComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatButtonModule,
     HttpClientModule,
+    MatGridListModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

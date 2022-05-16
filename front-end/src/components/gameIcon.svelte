@@ -33,6 +33,7 @@
 		display: inline-block;
 		transition: transform 250ms;
 		cursor: pointer;
+		background-size: auto;
 	}
 
 	.game-container:hover {
@@ -40,9 +41,9 @@
 	}
 
 	.box-art {
-		max-width: 100%;
+		/* max-width: 100%;
 		max-height: 100%;
-		display: inline-flex;
+		display: inline-flex; */
 
 		box-shadow: 0 0px 20px black;
 	}
