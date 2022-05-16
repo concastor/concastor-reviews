@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GameIconComponent } from './components/game-icon/game-icon.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { ScoreDisplayComponent } from './shared/score-display/score-display.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
     GameGridComponent,
     RecentGameComponent,
     GameIconComponent,
+    ScoreDisplayComponent,
   ],
   imports: [
     BrowserModule,

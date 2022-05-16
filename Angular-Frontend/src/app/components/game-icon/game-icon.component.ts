@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Game } from 'src/types/Game.type';
 
 @Component({
@@ -7,7 +8,7 @@ import { Game } from 'src/types/Game.type';
   styleUrls: ['./game-icon.component.scss'],
 })
 export class GameIconComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   private _game: Game;
   IMG_URL: string = '';
@@ -23,5 +24,9 @@ export class GameIconComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('img url', this.game, this.IMG_URL);
+  }
+
+  selected(): void {
+    this.router.navigate([`review/${this.game.title}`]);
   }
 }

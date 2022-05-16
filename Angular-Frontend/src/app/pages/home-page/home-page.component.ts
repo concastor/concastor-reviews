@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendCallService } from 'src/app/shared/backend-call.service';
+import { BackendCallService } from 'src/app/services/backend-call.service';
 import { Game } from 'src/types/Game.type';
 
 @Component({
