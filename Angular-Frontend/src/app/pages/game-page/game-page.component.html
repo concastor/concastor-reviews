@@ -3,15 +3,13 @@
   <mat-grid-tile [colspan]="2" [rowspan]="8">
     <img class="art" src="{{ IMG_URL }}" alt="" />
   </mat-grid-tile>
-  <mat-grid-tile
-    *ngFor="let score of game.score | keyvalue"
-    [colspan]="3"
-    [rowspan]="2"
-  >
-    <p class="score-display">
-      <b>{{ score.key }}</b> : {{ score.value }}
-    </p>
-  </mat-grid-tile>
+  <ng-container *ngFor="let score of game.score | keyvalue">
+    <mat-grid-tile *ngIf="score.key != 'overall'" [colspan]="3" [rowspan]="2">
+      <p class="score-display">
+        <b>{{ score.key }}</b> : {{ score.value }}
+      </p>
+    </mat-grid-tile>
+  </ng-container>
 </mat-grid-list>
 
 <!-- <img src="{{ IMG_URL }}" alt="" /> -->
