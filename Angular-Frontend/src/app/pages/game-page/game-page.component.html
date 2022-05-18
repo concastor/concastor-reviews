@@ -5,11 +5,10 @@
   </mat-grid-tile>
   <ng-container *ngFor="let score of game.score | keyvalue">
     <mat-grid-tile *ngIf="score.key != 'overall'" [colspan]="3" [rowspan]="2">
-      <app-score-display></app-score-display>
-
-      <p class="score-display">
-        <b>{{ score.key }}</b> : {{ score.value }}
-      </p>
+      <app-score-display
+        [score]="score.value"
+        [title]="score.key"
+      ></app-score-display>
     </mat-grid-tile>
   </ng-container>
   <mat-grid-tile [colspan]="1" [rowspan]="2">
