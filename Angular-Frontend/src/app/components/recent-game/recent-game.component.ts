@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Game } from 'src/types/Game.type';
 
 @Component({
   selector: 'app-recent-game',
   templateUrl: './recent-game.component.html',
-  styleUrls: ['./recent-game.component.scss']
+  styleUrls: ['./recent-game.component.scss'],
 })
 export class RecentGameComponent implements OnInit {
+  private _recentGame: Game;
 
-  constructor() { }
+  IMG_URL: string = '';
 
-  ngOnInit(): void {
+  get recentGame(): Game {
+    return this._recentGame;
   }
 
+  @Input() set recentGame(value: Game) {
+    this._recentGame = value;
+    this.IMG_URL = `https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${this._recentGame.pic_id}.jpg`;
+  }
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }

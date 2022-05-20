@@ -25,17 +25,6 @@ export class BackendCallService {
     return this.http.post<Game>(this.api_url + '/games/one', { title });
   }
 
-  // getOneGame = async (title: string) => {
-  // 	try {
-  // 		const response = await axios.post(`${API_URL}/games/one`, { title })
-  // 		return response.data
-
-  // 		//handle error
-  // 	} catch (error) {
-  // 		console.log(error)
-  // 	}
-  // }
-
   // createGame = async (game: Game) => {
   // 	try {
   // 		const response = await axios.post(`${API_URL}/games/create`, game)

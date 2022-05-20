@@ -10,9 +10,9 @@ const routes: Routes = [
   { path: 'review/:title', component: GamePageComponent },
   { path: 'home', component: HomePageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
   { path: 'all', component: AllPageComponent },
   { path: 'create', component: CreatePageComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

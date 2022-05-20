@@ -15,8 +15,9 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.backend.getAllGames().subscribe((data) => {
-      this.games = data;
       this.recentGame = data[0];
+      this.games = data;
+      this.games.shift();
     });
   }
 }
