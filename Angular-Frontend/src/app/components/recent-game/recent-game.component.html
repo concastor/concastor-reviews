@@ -12,6 +12,8 @@
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="3" [rowspan]="2">
-    <button mat-raised-button color="primary">Go To Full Review</button>
+    <button mat-raised-button color="primary" (click)="selected()">
+      Go To Full Review
+    </button>
   </mat-grid-tile>
 </mat-grid-list>

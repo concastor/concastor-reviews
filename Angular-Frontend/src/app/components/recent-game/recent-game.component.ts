@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Game } from 'src/types/Game.type';
 
 @Component({
@@ -7,6 +8,8 @@ import { Game } from 'src/types/Game.type';
   styleUrls: ['./recent-game.component.scss'],
 })
 export class RecentGameComponent implements OnInit {
+  constructor(private router: Router) {}
+
   private _recentGame: Game;
 
   IMG_URL: string = '';
@@ -20,7 +23,9 @@ export class RecentGameComponent implements OnInit {
     this.IMG_URL = `https://images.igdb.com/igdb/image/upload/t_cover_big_2x/${this._recentGame.pic_id}.jpg`;
   }
 
-  constructor() {}
-
   ngOnInit(): void {}
+
+  selected(): void {
+    this.router.navigate([`review/${this.recentGame.title}`]);
+  }
 }
