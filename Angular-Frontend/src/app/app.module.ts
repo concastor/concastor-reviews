@@ -19,6 +19,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { ScoreDisplayComponent } from './shared/score-display/score-display.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatGridListModule,
     MatCardModule,
     MatDividerModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,11 +1,7 @@
 <div class="game-container" (click)="selected()">
-  <span class="box-art">
+  <div class="box-art">
+    <div class="score">{{ game.score.overall }}</div>
     <img src="{{ this.IMG_URL }}" alt="image" />
-  </span>
-
+  </div>
   <h4 class="title">{{ game.title }}</h4>
-
-  <!-- {#each game.genre as genre}
-		<Tag type="teal">{genre.name}</Tag>
-	{/each} -->
 </div>
