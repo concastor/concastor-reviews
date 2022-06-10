@@ -20,7 +20,9 @@ import { MatCardModule } from '@angular/material/card';
 import { ScoreDisplayComponent } from './shared/score-display/score-display.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { ScoreCreateComponent } from './components/score-create/score-create.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { MatChipsModule } from '@angular/material/chips';
     RecentGameComponent,
     GameIconComponent,
     ScoreDisplayComponent,
+    ScoreCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatCardModule,
     MatDividerModule,
     MatChipsModule,
+    MatInputModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

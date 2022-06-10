@@ -1,1 +1,20 @@
-<p>create-page works!</p>
+<h1>Create new Game review</h1>
+<mat-divider></mat-divider>
+<form class="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Game Title</mat-label>
+    <input
+      name="title"
+      matInput
+      placeholder="Ex. Dying light"
+      [(ngModel)]="title"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="review-area" appearance="fill">
+    <mat-label>Review</mat-label>
+    <textarea name="review" rows="20" matInput [(ngModel)]="review"></textarea>
+  </mat-form-field>
+
+  <app-score-create (scoreChange)="updateScore($event)"></app-score-create>
+</form>

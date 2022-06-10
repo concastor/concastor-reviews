@@ -1,0 +1,70 @@
+<div class="sub-heading">
+  <h4>Score</h4>
+  <mat-divider></mat-divider>
+</div>
+
+<mat-grid-list cols="4" rowHeight="4:1">
+  <mat-grid-tile>
+    <mat-form-field appearance="fill">
+      <mat-label>Enjoyment</mat-label>
+      <input
+        type="number"
+        name="score1"
+        max="100"
+        min="0"
+        matInput
+        [(ngModel)]="enjoyment"
+        (change)="calculateOverall()"
+        onfocus="this.select()"
+      />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field appearance="fill">
+      <mat-label>Game Feel</mat-label>
+      <input
+        type="number"
+        name="score2"
+        max="100"
+        min="0"
+        matInput
+        [(ngModel)]="gameFeel"
+        (change)="calculateOverall()"
+        onfocus="this.select()"
+      />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field appearance="fill">
+      <mat-label>Story</mat-label>
+      <input
+        type="number"
+        name="score3"
+        max="100"
+        min="0"
+        matInput
+        [(ngModel)]="story"
+        (change)="calculateOverall()"
+        onfocus="this.select()"
+      />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field appearance="fill">
+      <mat-label>World</mat-label>
+      <input
+        type="number"
+        name="score4"
+        max="100"
+        min="0"
+        matInput
+        [(ngModel)]="world"
+        (change)="calculateOverall()"
+        onfocus="this.select()"
+      />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="4">
+    <h3>Overall score : {{ overall }}</h3>
+  </mat-grid-tile>
+</mat-grid-list>
