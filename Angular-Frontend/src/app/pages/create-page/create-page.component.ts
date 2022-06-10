@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendCallService } from 'src/app/services/backend-call.service';
+import { Game } from 'src/types/Game.type';
 import { Score } from 'src/types/Score.type';
 
 @Component({
@@ -7,16 +9,19 @@ import { Score } from 'src/types/Score.type';
   styleUrls: ['./create-page.component.scss'],
 })
 export class CreatePageComponent implements OnInit {
-  constructor() {}
+  constructor(private backend: BackendCallService) {}
 
-  title: String;
-  genre: string[] = [];
-  review: string;
-  score: Score;
+  loading: boolean = false;
+  possibleGames: Game[] = [];
 
   ngOnInit(): void {}
 
-  updateScore(newScore: Score): void {
-    this.score = newScore;
+  async handleGameSearch(newGame: Game): Promise<void> {
+    this.loading = true;
+    await this.backend.createGame(newGame).subscribe((data) => {
+      this.possibleGames = data;
+      console.log('data', this.possibleGames.length);
+      this.loading = false;
+    });
   }
 }

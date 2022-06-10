@@ -23,6 +23,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ScoreCreateComponent } from './components/score-create/score-create.component';
+import { CreateComponentComponent } from './components/create-component/create-component.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SelectionIconComponent } from './components/selection-icon/selection-icon.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +41,8 @@ import { ScoreCreateComponent } from './components/score-create/score-create.com
     GameIconComponent,
     ScoreDisplayComponent,
     ScoreCreateComponent,
+    CreateComponentComponent,
+    SelectionIconComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +57,7 @@ import { ScoreCreateComponent } from './components/score-create/score-create.com
     MatChipsModule,
     MatInputModule,
     FormsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

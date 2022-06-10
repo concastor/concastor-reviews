@@ -71,9 +71,7 @@ class GamesInfo {
 			PossibleGames.push(temp_game)
 		}
 
-		return {
-			PossibleGames,
-		}
+		return PossibleGames
 	}
 
 	async addGame(game) {

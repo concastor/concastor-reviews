@@ -22,9 +22,7 @@ export class GameIconComponent implements OnInit {
     this.IMG_URL = `https://images.igdb.com/igdb/image/upload/t_cover_big/${this.game.pic_id}.jpg`;
   }
 
-  ngOnInit(): void {
-    console.log('img url', this.game, this.IMG_URL);
-  }
+  ngOnInit(): void {}
 
   selected(): void {
     this.router.navigate([`review/${this.game.title}`]);
