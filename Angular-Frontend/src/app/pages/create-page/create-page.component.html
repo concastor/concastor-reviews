@@ -1,4 +1,4 @@
-<h1>Create new Game review</h1>
+<h1>Create New Game Review</h1>
 <mat-divider></mat-divider>
 <div class="container">
   <div class="creation">
@@ -12,9 +12,16 @@
     <div *ngIf="possibleGames.length">
       <mat-grid-list cols="3" rowHeight="1:1">
         <mat-grid-tile *ngFor="let game of possibleGames">
-          <app-selection-icon [game]="game"></app-selection-icon>
+          <app-selection-icon
+            [game]="game"
+            (gameSelected)="addGameToDb($event)"
+          ></app-selection-icon>
         </mat-grid-tile>
       </mat-grid-list>
     </div>
   </div>
+</div>
+
+<div *ngIf="bigLoading" class="overlay">
+  <mat-spinner></mat-spinner>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Game } from 'src/types/Game.type';
 
 @Component({
@@ -8,6 +8,8 @@ import { Game } from 'src/types/Game.type';
 })
 export class SelectionIconComponent implements OnInit {
   constructor() {}
+
+  @Output() gameSelected = new EventEmitter<Game>();
 
   private _game: Game;
   IMG_URL: string = '';
@@ -24,6 +26,6 @@ export class SelectionIconComponent implements OnInit {
   ngOnInit(): void {}
 
   selected(): void {
-    console.log('selected this', this.game.title);
+    this.gameSelected.emit(this.game);
   }
 }

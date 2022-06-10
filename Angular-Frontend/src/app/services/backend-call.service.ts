@@ -29,15 +29,9 @@ export class BackendCallService {
     return this.http.post<Game[]>(this.api_url + '/games/create', game);
   }
 
-  // addGameToDb = async (game: Game) => {
-  // 	try {
-  // 		const response = await axios.post(`${API_URL}/games/add`, game)
-  // 		return response
-  // 		//handle error
-  // 	} catch (error) {
-  // 		console.log(error)
-  // 	}
-  // }
+  addGameToDb(game: Game): Observable<Game> {
+    return this.http.post<Game>(this.api_url + '/games/add', game);
+  }
 
   // searchGame = async (query: string, filter: string, sort: string) => {
   // 	try {
