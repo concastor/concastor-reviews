@@ -26,6 +26,7 @@ import { ScoreCreateComponent } from './components/score-create/score-create.com
 import { CreateComponentComponent } from './components/create-component/create-component.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SelectionIconComponent } from './components/selection-icon/selection-icon.component';
+import { SearchBarComponent } from './shared/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SelectionIconComponent } from './components/selection-icon/selection-ic
     ScoreCreateComponent,
     CreateComponentComponent,
     SelectionIconComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,

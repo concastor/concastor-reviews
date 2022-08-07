@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'all', component: AllPageComponent },
   { path: 'create', component: CreatePageComponent },
+  { path: 'about', component: CreatePageComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
