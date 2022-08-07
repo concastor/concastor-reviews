@@ -19,6 +19,7 @@ async function initDB() {
 
 			return {
 				Games: database.collection("Games"),
+				Users: database.collection("Users"),
 			}
 		} catch (e) {
 			console.log(e)
@@ -26,6 +27,7 @@ async function initDB() {
 	} else {
 		return {
 			Games: database.collection("Games"),
+			Users: database.collection("Users"),
 		}
 	}
 }

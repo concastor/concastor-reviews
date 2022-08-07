@@ -3,9 +3,21 @@
     <span class="title" routerLink="/home">Concastor Reviews</span>
     <div>
       <button mat-button routerLink="/all">All Reviews</button>
-      <button mat-button routerLink="/create">Create</button>
       <button mat-button routerLink="/about">About me</button>
-      <button mat-button>Log in</button>
+      <button mat-button routerLink="/create">Create</button>
+      <ng-container *ngIf="user; else elseTemplate">
+        logged in as {{ user.email }}
+      </ng-container>
+      <ng-template #elseTemplate>
+        <button mat-raised-button color="accent" (click)="openDialog()">
+          <mat-icon>account_circle</mat-icon>
+          Log In/Sign Up
+        </button>
+        <!--
+        <button mat-icon-button>
+          <mat-icon (click)="openDialog()">account_circle</mat-icon>
+        </button> -->
+      </ng-template>
     </div>
   </div>
 </mat-toolbar>

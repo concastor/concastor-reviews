@@ -29,9 +29,7 @@ const getFilter = (filterParam) => {
 }
 
 class GamesInfo {
-	constructor() {
-		//   this.mongoClient = retrieveMongo()
-	}
+	constructor() {}
 
 	async allGameInfo() {
 		let mongoClient = await retrieveMongo()

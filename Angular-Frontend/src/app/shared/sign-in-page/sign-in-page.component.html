@@ -1,0 +1,102 @@
+<ng-container *ngIf="!createAccount; else elseTemplate">
+  <div class="signIn">
+    <h1>Sign in</h1>
+
+    <form
+      class="sign-form"
+      #f="ngForm"
+      [noValidate]="false"
+      (ngSubmit)="attemptSignOn()"
+    >
+      <mat-form-field appearance="fill" class="input">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          required
+          [(ngModel)]="email"
+          name="InEmail"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="input">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          required
+          [(ngModel)]="password"
+          type="password"
+          name="inPass"
+        />
+      </mat-form-field>
+      <br />
+      <button
+        mat-button
+        color="accent"
+        type="button"
+        (click)="createAccount = !createAccount"
+      >
+        Don't have an account? Create account here
+      </button>
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close [disabled]="loading">Cancel</button>
+        <button mat-button type="submit" cdkFocusInitial [disabled]="loading">
+          Sign In
+        </button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="signIn">
+    <h1>Create Account</h1>
+
+    <form
+      class="sign-form"
+      #f="ngForm"
+      [noValidate]="false"
+      (ngSubmit)="createNewAccount()"
+    >
+      <mat-form-field appearance="fill" class="input">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          required
+          type="email"
+          [(ngModel)]="email"
+          name="createEmail"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="input">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          required
+          [(ngModel)]="password"
+          type="password"
+          name="createPass"
+        />
+      </mat-form-field>
+      <br />
+      <button
+        mat-button
+        color="accent"
+        type="button"
+        (click)="createAccount = !createAccount"
+      >
+        <mat-icon>undo</mat-icon>
+
+        Go Back
+      </button>
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close [disabled]="loading">Cancel</button>
+        <button mat-button type="submit" cdkFocusInitial [disabled]="loading">
+          Create Account
+        </button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</ng-template>

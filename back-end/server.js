@@ -4,9 +4,11 @@ const asyncHandler = require("express-async-handler")
 const cors = require("cors")
 
 const GI = require("./GamesInfo")
+const UI = require("./UserInfo")
 const API_URL = process.env.API_URL || `http://localhost:4000/api`
 
 let GameInfo = new GI.GamesInfo()
+let UserInfo = new UI.UserInfo()
 
 var app = express()
 
@@ -71,6 +73,30 @@ router.post(
 	"/games/search",
 	asyncHandler(async (req, res) => {
 		let response = await GameInfo.searchGame(req.body)
+		res.json(response)
+	})
+)
+
+//route to create a user
+router.post(
+	"/user/create",
+	asyncHandler(async (req, res) => {
+		let response = await UserInfo.create_user(req.body.email, req.body.password)
+
+		console.log("res")
+		res.json(response)
+	})
+)
+
+//route to log in
+router.post(
+	"/user/sign",
+	asyncHandler(async (req, res) => {
+		// console.log("body", req.body)
+
+		let response = await UserInfo.get_user(req.body.email, req.body.password)
+
+		console.log("info", response)
 		res.json(response)
 	})
 )

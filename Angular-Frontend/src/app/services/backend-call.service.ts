@@ -33,6 +33,20 @@ export class BackendCallService {
     return this.http.post<Game>(this.api_url + '/games/add', game);
   }
 
+  logInUser(email: string, password: string): Observable<any> {
+    return this.http.post(this.api_url + '/user/sign', {
+      email,
+      password,
+    });
+  }
+
+  createUser(email: string, password: string): Observable<any> {
+    return this.http.post(this.api_url + '/user/create', {
+      email,
+      password,
+    });
+  }
+
   // searchGame = async (query: string, filter: string, sort: string) => {
   // 	try {
   // 		const response = await axios.post(`${API_URL}/games/search`, {

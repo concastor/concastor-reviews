@@ -27,6 +27,11 @@ import { CreateComponentComponent } from './components/create-component/create-c
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SelectionIconComponent } from './components/selection-icon/selection-icon.component';
 import { SearchBarComponent } from './shared/search-bar/search-bar.component';
+import { SignInPageComponent } from './shared/sign-in-page/sign-in-page.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -45,6 +50,7 @@ import { SearchBarComponent } from './shared/search-bar/search-bar.component';
     CreateComponentComponent,
     SelectionIconComponent,
     SearchBarComponent,
+    SignInPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +66,10 @@ import { SearchBarComponent } from './shared/search-bar/search-bar.component';
     MatInputModule,
     FormsModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatIconModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
