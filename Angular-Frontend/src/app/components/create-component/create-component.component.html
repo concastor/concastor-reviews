@@ -8,13 +8,9 @@
       [(ngModel)]="title"
     />
   </mat-form-field>
-
-  <mat-form-field class="review-area" appearance="fill">
-    <mat-label>Review</mat-label>
-    <textarea name="review" rows="20" matInput [(ngModel)]="review"></textarea>
-  </mat-form-field>
-
   <app-score-create (scoreChange)="updateScore($event)"></app-score-create>
+
+  <app-review-writing></app-review-writing>
 
   <button mat-raised-button color="primary" (click)="handleSubmit()">
     Search for game

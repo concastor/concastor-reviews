@@ -32,6 +32,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ReviewWritingComponent } from './components/review-writing/review-writing.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SelectionIconComponent,
     SearchBarComponent,
     SignInPageComponent,
+    ReviewWritingComponent,
   ],
   imports: [
     BrowserModule,

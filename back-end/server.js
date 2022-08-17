@@ -46,7 +46,7 @@ router.post(
 	"/games/one",
 	asyncHandler(async (req, res) => {
 		let response = await GameInfo.findOneGame(req.body.title);
-		res.status(200).json(response);
+		res.status(200).json(response[0]);
 	})
 );
 

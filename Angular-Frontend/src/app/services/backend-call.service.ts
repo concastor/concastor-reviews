@@ -22,7 +22,9 @@ export class BackendCallService {
 
   //get courses from database
   getOneGame(title: string): Observable<Game> {
-    return this.http.post<Game>(this.api_url + '/games/one', { title });
+    const data = this.http.post<Game>(this.api_url + '/games/one', { title });
+    console.log('data', data);
+    return data;
   }
 
   createGame(game: Game): Observable<Game[]> {
