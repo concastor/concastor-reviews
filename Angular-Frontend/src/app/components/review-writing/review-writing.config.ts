@@ -1,34 +1,30 @@
-// import Header from '@editorjs/header';
-// import List from '@editorjs/list';
-// import Embed from '@editorjs/embed';
-// import Marker from '@editorjs/marker';
+import Header from '@editorjs/header';
+import List from '@editorjs/list';
+import Embed from '@editorjs/embed';
+import Marker from '@editorjs/marker';
 
-// // const Embed = require('@editorjs/embed');
-// // const Marker = require('@editorjs/marker');
-// export const editorjsConfig = {
-//   holder: 'editorjs',
-//   tools: {
-//     Marker: {
-//       class: Marker,
-//       shortcut: 'CMD+SHIFT+M',
-//     },
-//     header: {
-//       class: Header,
-//       inlineToolbar: ['link', 'bold', 'italic'],
-//     },
-//     list: {
-//       class: List,
-//       inlineToolbar: ['link', 'bold'],
-//     },
-//     embed: {
-//       class: Embed,
-//       inlineToolbar: false,
-//       config: {
-//         services: {
-//           youtube: true,
-//           coub: true,
-//         },
-//       },
-//     },
-//   },
-// };
+export const editorjsConfig = {
+  /**
+   * Id of Element that should contain the Editor
+   */
+  holderId: 'editorjs',
+
+  /**
+   * Available Tools list.
+   * Pass Tool's class or Settings object for each Tool you want to use
+   */
+  tools: {
+    header: {
+      class: Header,
+      inlineToolbar: true,
+    },
+    // ...
+  },
+
+  placeholder: 'Write or preferably paste a review..',
+
+  /**
+   * Previously saved data that should be rendered
+   */
+  // data: {}
+};
