@@ -12,13 +12,17 @@ export class CreateComponentComponent implements OnInit {
 
   constructor() {}
   title: string;
-  review: string;
+  review: object;
   score: Score;
 
   ngOnInit(): void {}
 
   updateScore(newScore: Score): void {
     this.score = newScore;
+  }
+
+  updateReview(newReview: Array<object>): void {
+    this.review = newReview;
   }
 
   handleSubmit(): void {

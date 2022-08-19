@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { JsonPipe } from '@angular/common';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import EditorJS from '@editorjs/editorjs';
-import Header from '@editorjs/header';
 
 // import List from '@editorjs/list';
 import { editorjsConfig } from './review-writing.config';
@@ -13,9 +13,8 @@ import { editorjsConfig } from './review-writing.config';
 export class ReviewWritingComponent implements OnInit {
   constructor() {}
 
-  editorData: any;
   editor: EditorJS;
-  editorObserver: MutationObserver;
+  @Output() reviewSaved = new EventEmitter<Array<object>>();
 
   ngOnInit(): void {
     this.setUpEditor();
@@ -25,7 +24,7 @@ export class ReviewWritingComponent implements OnInit {
     this.editor
       .save()
       .then((outputData) => {
-        console.log('Article data: ', outputData);
+        this.reviewSaved.emit(outputData.blocks);
       })
       .catch((error) => {
         console.log('Saving failed: ', error);

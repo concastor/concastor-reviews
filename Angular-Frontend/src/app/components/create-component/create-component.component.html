@@ -10,7 +10,7 @@
   </mat-form-field>
   <app-score-create (scoreChange)="updateScore($event)"></app-score-create>
 
-  <app-review-writing></app-review-writing>
+  <app-review-writing (reviewSaved)="updateReview($event)"></app-review-writing>
 
   <button mat-raised-button color="primary" (click)="handleSubmit()">
     Search for game
