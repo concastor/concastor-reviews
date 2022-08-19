@@ -1,58 +1,94 @@
-const MongoService = require("./loaders/mongo")
-const IgdbLoader = require("./loaders/igdbLoader")
-const igdbLoader = require("./loaders/igdbLoader")
+const MongoService = require("./loaders/mongo");
+const IgdbLoader = require("./loaders/igdbLoader");
+const igdbLoader = require("./loaders/igdbLoader");
+const mongoose = require("mongoose");
+const gameSchema = require("./schemas/gameSchema");
+const gameModel = mongoose.model("Game", gameSchema, "Games");
 
-const retrieveMongo = async () => {
-	return await MongoService.getDb()
-}
+//EXTERNAL FUNCTIONS
 
-class GamesInfo {
-	constructor() {
-		//   this.mongoClient = retrieveMongo()
+const getSort = (sortParam) => {
+	switch (sortParam) {
+		case "Title":
+			return { title: 1 };
+		case "Rating":
+			return { "score.overall": -1 };
+		default:
+			return { $natural: -1 };
+	}
+};
+
+const getFilter = (filterParam) => {
+	switch (filterParam) {
+		case "Score":
+			return { "score.overall": { $gt: 80 } };
+		default:
+			return null;
+	}
+};
+
+//EXPORTED FUNCTIONS
+
+allGameInfo = async () => {
+	return await gameModel.find({}).sort({ $natural: -1 });
+};
+
+findOneGame = async (title) => {
+	return await gameModel.find({ title });
+};
+
+getPossibleGames = async (game) => {
+	let PossibleGames = [];
+	const games_info = await IgdbLoader.getId(game.title);
+
+	for (let game_info of games_info) {
+		let temp_game = {
+			...game,
+		};
+
+		const coverArtID = await igdbLoader.getCoverArt(game_info.cover);
+		const genres = await igdbLoader.getGenres(game_info.genres);
+
+		temp_game.pic_id = coverArtID;
+		temp_game.genre = genres;
+		temp_game.igdb_id = game_info.id;
+		temp_game.title = game_info.name;
+
+		PossibleGames.push(temp_game);
 	}
 
-	async allGameInfo() {
-		let mongoClient = await retrieveMongo()
+	return PossibleGames;
+};
 
-		let allgames = await mongoClient.Games.find({}).toArray()
+addGame = async (game) => {
+	return await gameModel.create(game);
+};
 
-		//TODO: remove, currently for testing
-		allgames = [...allgames, ...allgames]
-		return allgames
-	}
+searchGame = async (params) => {
+	let filter = getFilter(params.filter);
+	let sortMethod = getSort(params.sort);
 
-	async findOneGame(title) {
-		let mongoClient = await retrieveMongo()
+	let search = params.query
+		? { title: { $regex: params.query, $options: "i" } }
+		: null;
 
-		let game = await mongoClient.Games.findOne({ title })
+	let sortObj = { ...sortMethod };
 
-		return game
-	}
+	let searchArr = [search, filter];
 
-	async createGame(game) {
-		let PossibleGames = []
-		const games_info = await IgdbLoader.getId(game.title)
+	searchArr = searchArr.filter((item) => {
+		return item != null;
+	});
 
-		for (let game_info of games_info) {
-			let temp_game = {
-				...game,
-			}
+	const query = searchArr.length ? { $and: searchArr } : "";
 
-			const coverArtUrl = await igdbLoader.getCoverArt(game_info.cover)
-			const genres = await igdbLoader.getGenres(game_info.genres)
+	return await gameModel.find(query).sort(sortObj);
+};
 
-			temp_game.picLink = coverArtUrl
-			temp_game.genre = genres
-			temp_game.igdb_id = game_info.id
-			temp_game.title = game_info.name
-
-			PossibleGames.push(temp_game)
-		}
-
-		return {
-			PossibleGames,
-		}
-	}
-}
-
-module.exports.GamesInfo = GamesInfo
+module.exports = {
+	allGameInfo,
+	findOneGame,
+	getPossibleGames,
+	addGame,
+	searchGame,
+};

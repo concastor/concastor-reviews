@@ -1,0 +1,6 @@
+<mat-divider></mat-divider>
+<mat-grid-list cols="5" rowHeight="1:1.5">
+  <mat-grid-tile *ngFor="let game of displayGames">
+    <app-game-icon [game]="game"></app-game-icon>
+  </mat-grid-tile>
+</mat-grid-list>

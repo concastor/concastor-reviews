@@ -1,0 +1,10 @@
+<div>
+  <h1>Most Recent Review</h1>
+  <mat-divider></mat-divider>
+  <app-recent-game [recentGame]="recentGame"></app-recent-game>
+  <div class="header">
+    <h1>Other Recent Reviews</h1>
+    <button mat-button color="accent" routerLink="/all">See All Reviews</button>
+  </div>
+  <app-game-grid [displayGames]="games"></app-game-grid>
+</div>

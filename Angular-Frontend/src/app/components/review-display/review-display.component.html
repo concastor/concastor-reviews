@@ -1,0 +1,15 @@
+<div class="review-display">
+  <ng-container *ngFor="let reviewSection of review">
+    <ng-container *ngIf="reviewSection.type === 'header'; else elseTemplate">
+      <div class="header-display">
+        <h1>{{ reviewSection.data.text }}</h1>
+        <hr />
+      </div>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div class="paragraph-display">
+        <p>{{ reviewSection.data.text }}</p>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

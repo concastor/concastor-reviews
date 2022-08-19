@@ -62,7 +62,7 @@ const makeIgdbRequest = async (filters, route) => {
 			data: filters,
 		})
 	} catch (error) {
-		console.log("error", error.data)
+		console.log("error", error.config.data, error.config.url)
 	}
 }
 
@@ -86,9 +86,7 @@ const getGameCover = async (game_id) => {
 
 	let res = await makeIgdbRequest(filter, route)
 
-	let coverInfo = res.data[0]
-
-	return `https://images.igdb.com/igdb/image/upload/t_cover_big/${coverInfo.image_id}.jpg`
+	return res ? res.data[0].image_id : ""
 }
 
 const getGameGenres = async (genres) => {

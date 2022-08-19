@@ -1,0 +1,19 @@
+<mat-grid-list cols="5" rowHeight="95px">
+  <mat-grid-tile [colspan]="2" [rowspan]="8">
+    <img class="art" src="{{ IMG_URL }}" alt="" />
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="3" [rowspan]="2">
+    <h1>{{ recentGame.title }}</h1>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="3" [rowspan]="4">
+    <p>{{ recentGame.review }}</p>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="3" [rowspan]="2">
+    <button mat-raised-button color="primary" (click)="selected()">
+      Go To Full Review
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>

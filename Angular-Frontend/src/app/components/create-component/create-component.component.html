@@ -1,0 +1,18 @@
+<form class="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Game Title</mat-label>
+    <input
+      name="title"
+      matInput
+      placeholder="Ex. Dying light"
+      [(ngModel)]="title"
+    />
+  </mat-form-field>
+  <app-score-create (scoreChange)="updateScore($event)"></app-score-create>
+
+  <app-review-writing (reviewSaved)="updateReview($event)"></app-review-writing>
+
+  <button mat-raised-button color="primary" (click)="handleSubmit()">
+    Search for game
+  </button>
+</form>

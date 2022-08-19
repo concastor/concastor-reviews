@@ -1,0 +1,33 @@
+<ng-container *ngIf="game; else elseTemplate">
+  <h1 *ngIf="title">{{ game.title }}</h1>
+
+  <mat-grid-list cols="5" rowHeight="95px">
+    <mat-grid-tile [colspan]="2" [rowspan]="8">
+      <img class="art" src="{{ IMG_URL }}" alt="" />
+    </mat-grid-tile>
+    <ng-container *ngFor="let score of game.score | keyvalue">
+      <mat-grid-tile *ngIf="score.key != 'overall'" [colspan]="3" [rowspan]="2">
+        <app-score-display
+          [score]="score.value"
+          [title]="score.key"
+        ></app-score-display>
+      </mat-grid-tile>
+    </ng-container>
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <h2>game time:</h2>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <h2>maybe generes can go here</h2>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="2">
+      <mat-divider></mat-divider>
+      <app-score-display></app-score-display>
+      <p class="score-display">
+        <b>Overall Score</b> : {{ game.score.overall }}
+      </p>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <app-review-display [review]="game.review"></app-review-display>
+</ng-container>
+<ng-template #elseTemplate> loading </ng-template>
