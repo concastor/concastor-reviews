@@ -33,6 +33,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReviewWritingComponent } from './components/review-writing/review-writing.component';
+import { ReviewDisplayComponent } from './components/review-display/review-display.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ReviewWritingComponent } from './components/review-writing/review-writi
     SearchBarComponent,
     SignInPageComponent,
     ReviewWritingComponent,
+    ReviewDisplayComponent,
   ],
   imports: [
     BrowserModule,

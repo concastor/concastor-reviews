@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { OutputBlockData } from '@editorjs/editorjs';
 import { Game } from 'src/types/Game.type';
 import { Score } from 'src/types/Score.type';
 
@@ -12,7 +13,7 @@ export class CreateComponentComponent implements OnInit {
 
   constructor() {}
   title: string;
-  review: object;
+  review: Array<OutputBlockData>;
   score: Score;
 
   ngOnInit(): void {}
@@ -21,7 +22,7 @@ export class CreateComponentComponent implements OnInit {
     this.score = newScore;
   }
 
-  updateReview(newReview: Array<object>): void {
+  updateReview(newReview: Array<OutputBlockData>): void {
     this.review = newReview;
   }
 

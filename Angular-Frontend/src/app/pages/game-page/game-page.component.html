@@ -28,7 +28,6 @@
     </mat-grid-tile>
   </mat-grid-list>
 
-  <h1>Review</h1>
-  <mat-divider></mat-divider>
+  <app-review-display [review]="game.review"></app-review-display>
 </ng-container>
 <ng-template #elseTemplate> loading </ng-template>

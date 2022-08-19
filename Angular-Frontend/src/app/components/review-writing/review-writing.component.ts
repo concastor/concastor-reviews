@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import EditorJS from '@editorjs/editorjs';
+import EditorJS, { OutputBlockData } from '@editorjs/editorjs';
 
 // import List from '@editorjs/list';
 import { editorjsConfig } from './review-writing.config';
@@ -14,7 +14,7 @@ export class ReviewWritingComponent implements OnInit {
   constructor() {}
 
   editor: EditorJS;
-  @Output() reviewSaved = new EventEmitter<Array<object>>();
+  @Output() reviewSaved = new EventEmitter<Array<OutputBlockData>>();
 
   ngOnInit(): void {
     this.setUpEditor();
