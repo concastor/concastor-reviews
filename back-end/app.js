@@ -28,7 +28,7 @@ app.use("/api", router);
 
 app.get("/", function (req, res) {
 	res.json({
-		message: `your on the server but not the api, try going here ${API_URL}/api`,
+		message: `your on the server but not the api, try adding /api to the URI`,
 	});
 });
 
@@ -109,4 +109,6 @@ router.post(
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log(`Running a API server at ${API_URL}`);
+if (process.env.NODE_ENV === "production")
+	console.log(`Running a production API server at ${API_URL}`);
+else console.log(`Running a API server at ${API_URL}`);

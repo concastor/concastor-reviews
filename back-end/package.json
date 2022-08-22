@@ -22,7 +22,8 @@
 	},
 	"scripts": {
 		"test": "npm start-dev",
-		"start": "nodemon app.js"
+		"start": "nodemon app.js",
+		"start-prod": "SET NODE_ENV=production&& node app.js"
 	},
 	"author": "",
 	"license": "ISC"
