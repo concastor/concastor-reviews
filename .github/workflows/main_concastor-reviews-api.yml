@@ -22,10 +22,11 @@ jobs:
           node-version: "16.x"
 
       - name: npm install, build, and test
+        working-directory: ./back-end
         run: |
           npm install
           npm run prod-start --if-present
-        working-directory: back-end
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
