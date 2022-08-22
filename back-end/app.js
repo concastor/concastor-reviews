@@ -109,4 +109,6 @@ router.post(
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log(`Running a API server at ${API_URL}`);
+if (process.env.NODE_ENV === "production")
+	console.log(`Running a production API server at ${API_URL}`);
+else console.log(`Running a API server at ${API_URL}`);
