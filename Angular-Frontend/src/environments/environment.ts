@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   api_url: 'http://localhost:4000/api',
+  // api_url: 'https://concastor-reviews-api.azurewebsites.net/api',
 };
 
 /*

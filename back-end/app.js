@@ -2,12 +2,14 @@ require("dotenv").config();
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const cors = require("cors");
+const compression = require("compression");
+const helmet = require("helmet");
 
 const GameInfo = require("./GamesInfo");
 const UserInfo = require("./UserInfo");
-const API_URL = process.env.API_URL || `http://localhost:4000/api`;
+const API_URL = process.env.API_URL;
 
-const { connection } = require("./loaders/mongo");
+// const { connection } = require("./loaders/mongo");
 
 var app = express();
 
@@ -15,6 +17,8 @@ var app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(compression()); //Compress all routes
+app.use(helmet());
 
 var port = process.env.PORT || 4000;
 var router = express.Router();
