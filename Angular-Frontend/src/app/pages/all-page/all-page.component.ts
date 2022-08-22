@@ -12,6 +12,8 @@ export class AllPageComponent implements OnInit {
 
   games: Game[] = [];
 
+  scoreFilter: string;
+
   ngOnInit(): void {
     this.backend.getAllGames().subscribe((data) => {
       this.games = data;

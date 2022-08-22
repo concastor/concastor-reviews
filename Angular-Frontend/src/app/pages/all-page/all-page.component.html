@@ -1,5 +1,15 @@
 <div class="header">
   <h1>All Games</h1>
-  <app-search-bar></app-search-bar>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="scoreFilter">
+        <mat-option>None</mat-option>
+        <mat-option value="option1">Option 1</mat-option>
+        <mat-option value="option2">Option 2</mat-option>
+        <mat-option value="option3">Option 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
 <app-game-grid [displayGames]="games"></app-game-grid>

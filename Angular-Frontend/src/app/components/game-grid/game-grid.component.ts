@@ -10,6 +10,7 @@ export class GameGridComponent implements OnInit {
   constructor() {}
 
   @Input() displayGames: Game[] = [];
+  @Input() limit: number;
 
   ngOnInit(): void {}
 }

@@ -10,7 +10,10 @@
       </button>
 
       <ng-container *ngIf="user; else elseTemplate">
-        logged in as {{ user.email }}
+        <button mat-raised-button color="accent">
+          <mat-icon>account_circle</mat-icon>
+          logged in as {{ user.email }}
+        </button>
       </ng-container>
       <ng-template #elseTemplate>
         <button mat-raised-button color="accent" (click)="openDialog()">

@@ -17,7 +17,6 @@ export class LoggedInUserService {
     );
 
     if (data) {
-      console.log('data', data);
       this.currentUserSubject.next(data[0]);
       return true;
     }
