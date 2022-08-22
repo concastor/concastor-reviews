@@ -26,9 +26,14 @@ var router = express.Router();
 //register routes
 app.use("/api", router);
 
+app.get("/", function (req, res) {
+	res.json({
+		message: `your on the server but not the api, try going here ${API_URL}/api`,
+	});
+});
+
 // ROUTES FOR API
 // =============================================================================
-
 // default route to make sure everything is working (accessed at GET http://localhost:4000/api)
 router.get("/", function (req, res) {
 	res.json({
@@ -97,7 +102,6 @@ router.post(
 	"/user/sign",
 	asyncHandler(async (req, res) => {
 		let response = await UserInfo.get_user(req.body.email, req.body.password);
-
 		res.status(200).json(response);
 	})
 );
