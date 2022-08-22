@@ -28,7 +28,7 @@ app.use("/api", router);
 
 app.get("/", function (req, res) {
 	res.json({
-		message: `your on the server but not the api, try going here ${API_URL}/api`,
+		message: `your on the server but not the api, try adding /api to the URI`,
 	});
 });
 

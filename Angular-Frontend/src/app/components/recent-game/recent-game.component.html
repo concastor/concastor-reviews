@@ -1,19 +1,45 @@
 <mat-grid-list cols="5" rowHeight="95px">
-  <mat-grid-tile [colspan]="2" [rowspan]="8">
+  <mat-grid-tile [colspan]="2" [rowspan]="6">
     <img class="art" src="{{ IMG_URL }}" alt="" />
   </mat-grid-tile>
 
+  <!-- title -->
   <mat-grid-tile [colspan]="3" [rowspan]="2">
-    <h1>{{ recentGame.title }}</h1>
+    <div style="width: 100%">
+      <h1 class="header">{{ recentGame.title }}</h1>
+      <hr />
+    </div>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="3" [rowspan]="4">
-    <p>{{ recentGame.review }}</p>
+  <!-- review or preview -->
+  <mat-grid-tile [colspan]="3" [rowspan]="2">
+    <p>{{ recentGame.review[1].data.text }}</p>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="3" [rowspan]="2">
-    <button mat-raised-button color="primary" (click)="selected()">
-      Go To Full Review
-    </button>
+  <!-- genre tags -->
+  <mat-grid-tile [colspan]="3" [rowspan]="1">
+    <mat-chip-list aria-label="Genres">
+      <ng-container *ngFor="let genre of recentGame.genre">
+        <mat-chip>{{ genre.name }}</mat-chip>
+      </ng-container>
+
+      <!-- <mat-chip>Two fish</mat-chip>
+      <mat-chip color="accent" selected>Accent fish</mat-chip>
+      <mat-chip color="primary" selected>Primary fish</mat-chip> -->
+    </mat-chip-list>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="3" [rowspan]="1">
+    <div style="width: 80%">
+      <button
+        class="fullReview"
+        mat-raised-button
+        color="primary"
+        (click)="selected()"
+      >
+        Go To Full Review
+        <mat-icon>arrow_right</mat-icon>
+      </button>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>
