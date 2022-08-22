@@ -4,7 +4,11 @@
     <div>
       <button mat-button routerLink="/all">All Reviews</button>
       <button mat-button routerLink="/about">About me</button>
-      <button mat-button routerLink="/create">Create</button>
+
+      <button *ngIf="showCreate()" mat-button routerLink="/create">
+        Create
+      </button>
+
       <ng-container *ngIf="user; else elseTemplate">
         logged in as {{ user.email }}
       </ng-container>

@@ -23,6 +23,10 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  showCreate(): boolean {
+    return this.user?.admin;
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(SignInPageComponent, {
       width: '500px',
