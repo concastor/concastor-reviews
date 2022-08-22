@@ -12,7 +12,9 @@ export class AllPageComponent implements OnInit {
 
   games: Game[] = [];
 
-  scoreFilter: string;
+  scoreFilter: number = 0;
+
+  scores: number[] = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
   ngOnInit(): void {
     this.backend.getAllGames().subscribe((data) => {
