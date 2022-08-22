@@ -73,12 +73,14 @@ export class SignInPageComponent implements OnInit {
   async createNewAccount(): Promise<void> {
     this.loading = true;
 
-    const UserCreate = await this.loggedInService.createNewAccount(
+    const userCreate = await this.loggedInService.createNewAccount(
       this.email,
       this.password
     );
 
-    if (UserCreate) {
+    console.log('user create', userCreate);
+
+    if (userCreate) {
       this.openSnackbar('Account Created');
 
       this.dialogRef.close();
