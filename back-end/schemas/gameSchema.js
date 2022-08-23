@@ -7,6 +7,7 @@ const gameSchema = new Schema({
 	pic_id: String,
 	genre: Array,
 	score: Schema.Types.Mixed,
+	created: Date,
 });
 
 module.exports = gameSchema;

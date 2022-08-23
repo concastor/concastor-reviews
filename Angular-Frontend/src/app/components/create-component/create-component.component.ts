@@ -34,6 +34,7 @@ export class CreateComponentComponent implements OnInit {
       review: this.review,
       score: this.score,
       igdb_id: 0,
+      created: new Date(),
     };
 
     this.gameCreated.emit(newGame);

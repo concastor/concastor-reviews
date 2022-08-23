@@ -2,6 +2,12 @@
   cursor: pointer;
 }
 
+.logo {
+  width: 50px;
+  height: auto;
+  float: left;
+}
+
 .main {
   width: 81%;
   margin: auto;
@@ -11,3 +17,15 @@
   display: flex;
   justify-content: space-between;
 }
+
+h1 {
+  font-size: 2em;
+  margin-top: 10px;
+  margin-left: 10px;
+  float: right;
+}
+
+// .header h1 {
+//   font-size: 40px;
+//   margin: 0;
+// }
