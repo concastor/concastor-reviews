@@ -8,4 +8,5 @@ export type Game = {
   review: Array<OutputBlockData>;
   score: Score;
   igdb_id: number;
+  created: Date;
 };

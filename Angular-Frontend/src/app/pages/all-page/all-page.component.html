@@ -1,5 +1,29 @@
 <div class="header">
   <h1>All Games</h1>
-  <app-search-bar></app-search-bar>
+  <div>
+    <!-- sort method -->
+    <mat-form-field class="sort-filter" appearance="fill">
+      <mat-label>Sort Reviews</mat-label>
+      <mat-select [(value)]="sortMethod">
+        <ng-container *ngFor="let sort of sorts">
+          <mat-option value="{{ sort }}">{{ sort }}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- review filter -->
+    <mat-form-field appearance="fill">
+      <mat-label>Filter by Review Score</mat-label>
+      <mat-select [(value)]="scoreFilter">
+        <mat-option value="0">None</mat-option>
+        <ng-container *ngFor="let score of scores">
+          <mat-option value="{{ score }}">{{ score }}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
-<app-game-grid [displayGames]="games"></app-game-grid>
+<app-game-grid
+  [scoreFilter]="scoreFilter"
+  [displayGames]="games"
+></app-game-grid>

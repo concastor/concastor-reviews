@@ -28,4 +28,16 @@ export class RecentGameComponent implements OnInit {
   selected(): void {
     this.router.navigate([`review/${this.recentGame.title}`]);
   }
+
+  printDate(): string {
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+
+    const newDate = new Date(this.recentGame.created);
+    return newDate.toLocaleDateString('en-US', options);
+  }
 }

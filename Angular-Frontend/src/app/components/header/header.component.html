@@ -1,7 +1,16 @@
 <mat-toolbar color="primary">
   <div class="main header">
-    <span class="title" routerLink="/home">Concastor Reviews</span>
-    <div>
+    <span class="title" routerLink="/home">
+      <div>
+        <img
+          src="../../../assets/images/coolcastor.png"
+          class="logo"
+          alt="coolcastor_logo"
+        />
+        <h1>Concastor Reviews</h1>
+      </div>
+    </span>
+    <div style="padding-top: 5px">
       <button mat-button routerLink="/all">All Reviews</button>
       <button mat-button routerLink="/about">About me</button>
 
@@ -10,17 +19,16 @@
       </button>
 
       <ng-container *ngIf="user; else elseTemplate">
-        logged in as {{ user.email }}
+        <button mat-raised-button color="accent">
+          <mat-icon>account_circle</mat-icon>
+          logged in as {{ user.email }}
+        </button>
       </ng-container>
       <ng-template #elseTemplate>
         <button mat-raised-button color="accent" (click)="openDialog()">
           <mat-icon>account_circle</mat-icon>
           Log In/Sign Up
         </button>
-        <!--
-        <button mat-icon-button>
-          <mat-icon (click)="openDialog()">account_circle</mat-icon>
-        </button> -->
       </ng-template>
     </div>
   </div>
