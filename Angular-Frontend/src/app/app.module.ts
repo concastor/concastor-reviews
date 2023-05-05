@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +35,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReviewWritingComponent } from './components/review-writing/review-writing.component';
 import { ReviewDisplayComponent } from './components/review-display/review-display.component';
 import { MatSelectModule } from '@angular/material/select';
+import { FirebaseService } from './services/firebase.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,15 @@ import { MatSelectModule } from '@angular/material/select';
     MatSnackBarModule,
     MatSelectModule,
   ],
-  providers: [],
+  providers: [
+    FirebaseService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (db: FirebaseService) => () => db.subscribeToAllData(),
+      deps: [FirebaseService],
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
